@@ -1,0 +1,96 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --bg-paper: #FAF8F5;
+    --bg-paper-subtle: #F3EFE7;
+    --bg-card: #FFFFFF;
+    --text-primary: #0F1012;
+    --text-secondary: #4A4E58;
+    --text-muted: #737887;
+    --border-subtle: #E6E1D6;
+    --border-strong: #D4CDBC;
+    --accent-vermilion: #C84B27;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-paper);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #0F1012;
+    overflow-x: hidden;
+    selection-background-color: #C84B27;
+    selection-color: #FFFFFF;
+  }
+
+  ::selection {
+    background-color: #C84B27;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Grid & Pattern Utility Classes */
+.bg-paper-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 16, 18, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 16, 18, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(15, 16, 18, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.editorial-heading {
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.editorial-accent {
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  font-style: italic;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4CDBC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B0A894;
+}
+
+/* Diagnostic Line Pulsing Animation */
+@keyframes dash-pulse {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  stroke-dasharray: 6 6;
+  animation: dash-pulse 2s linear infinite;
+}
