@@ -7,14 +7,14 @@ export default function AboutNaxolutions() {
   return (
     <section className="pt-12 pb-20 md:pt-16 md:pb-28 bg-[#FAF8F5] border-b border-[#E6E1D6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl space-y-12">
+        <div className="max-w-4xl mx-auto space-y-12">
           {/* Section Header */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F3EFE7] border border-[#E6E1D6] text-xs font-semibold text-[#737887] uppercase tracking-wider">
               Firm Philosophy
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight max-w-3xl mx-auto">
               Naxolutions exists because businesses don't need another disconnected vendor.
             </h1>
           </div>
