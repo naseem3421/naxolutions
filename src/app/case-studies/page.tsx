@@ -1,33 +1,39 @@
-'use client';
+import type { Metadata } from 'next';
+import CaseStudiesClient from './CaseStudiesClient';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { seoConfig } from '@/config/seo';
 
-import React, { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import DiagnosticCaseTeardowns from '@/components/DiagnosticCaseTeardowns';
-import Footer from '@/components/Footer';
-import DiagnosticModal from '@/components/DiagnosticModal';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+export const metadata: Metadata = {
+  title: 'Conversion Case Studies & Teardowns | Naxolutions',
+  description:
+    'Explore real-world business conversion teardowns, pipeline fixes, lead latency reductions, and revenue optimizations implemented by Naxolutions.',
+  alternates: {
+    canonical: `${seoConfig.siteUrl}/case-studies`,
+  },
+  openGraph: {
+    title: 'Conversion Case Studies & Teardowns | Naxolutions',
+    description:
+      'Real baseline transformations showing before-and-after conversion system performance across B2B software, real estate, and healthcare technology.',
+    url: `${seoConfig.siteUrl}/case-studies`,
+    siteName: 'Naxolutions',
+    type: 'website',
+  },
+};
 
 export default function CaseStudiesPage() {
-  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
-
-  const handleOpenDiagnostic = () => setIsDiagnosticOpen(true);
-  const handleCloseDiagnostic = () => setIsDiagnosticOpen(false);
-
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1012] flex flex-col font-sans">
-      <Navigation onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <main className="flex-grow pt-16 sm:pt-20">
-        <DiagnosticCaseTeardowns onOpenDiagnostic={handleOpenDiagnostic} />
-      </main>
-
-      <Footer onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <DiagnosticModal
-        isOpen={isDiagnosticOpen}
-        onClose={handleCloseDiagnostic}
+    <>
+      <SchemaMarkup
+        type="page"
+        title="Conversion Case Studies & Teardowns"
+        description="Explore real-world business conversion teardowns, pipeline fixes, lead latency reductions, and revenue optimizations implemented by Naxolutions."
+        url="/case-studies"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Case Studies', url: '/case-studies' },
+        ]}
       />
-      <StickyMobileCTA onOpenDiagnostic={handleOpenDiagnostic} />
-    </div>
+      <CaseStudiesClient />
+    </>
   );
 }

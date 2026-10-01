@@ -14,7 +14,10 @@ const sansFont = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: '%s | Naxolutions Business Conversion Consultancy',
+  },
   description: siteConfig.description,
   keywords: [
     'Business Conversion Consultant',
@@ -25,10 +28,13 @@ export const metadata: Metadata = {
     'Sales Conversion',
     'Business Growth System',
     'Conversion Strategy',
+    'Chennai Business Conversion Consultant',
+    'WhatsApp Sales Systems',
+    'Marketing to Sales Systems',
   ],
   authors: [{ name: siteConfig.name }],
   alternates: {
-    canonical: '/',
+    canonical: siteConfig.url,
   },
   openGraph: {
     title: siteConfig.title,
@@ -59,6 +65,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.svg',
     apple: '/icon.svg',
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
 };
 

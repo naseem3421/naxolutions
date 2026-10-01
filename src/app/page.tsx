@@ -1,49 +1,31 @@
-'use client';
+import type { Metadata } from 'next';
+import HomeClient from './HomeClient';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { seoConfig } from '@/config/seo';
 
-import React, { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import TheRealProblem from '@/components/TheRealProblem';
-import RevenueJourney from '@/components/RevenueJourney';
-import RevenueLeakageCalculator from '@/components/RevenueLeakageCalculator';
-import DiagnosisCTA from '@/components/DiagnosisCTA';
-import FAQSection from '@/components/FAQSection';
-import Footer from '@/components/Footer';
-import DiagnosticModal from '@/components/DiagnosticModal';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+export const metadata: Metadata = {
+  title: 'Naxolutions | Business Conversion Consultancy Chennai',
+  description:
+    'Naxolutions is a Business Conversion Consultancy based in Chennai, India. We identify and fix the structural gaps between customer attention, enquiries, sales conversations, follow-up, and revenue.',
+  alternates: {
+    canonical: `${seoConfig.siteUrl}/`,
+  },
+  openGraph: {
+    title: 'Naxolutions | Business Conversion Consultancy',
+    description:
+      'Identify and fix structural revenue leaks across attention, enquiry, sales qualification, conversation, and revenue.',
+    url: `${seoConfig.siteUrl}/`,
+    siteName: 'Naxolutions',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 export default function Home() {
-  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
-
-  const handleOpenDiagnostic = () => {
-    setIsDiagnosticOpen(true);
-  };
-
-  const handleCloseDiagnostic = () => {
-    setIsDiagnosticOpen(false);
-  };
-
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1012] flex flex-col font-sans">
-      <Navigation onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <main className="flex-grow">
-        <Hero onOpenDiagnostic={handleOpenDiagnostic} />
-        <TheRealProblem />
-        <RevenueJourney onOpenDiagnostic={handleOpenDiagnostic} />
-        <RevenueLeakageCalculator onOpenDiagnostic={handleOpenDiagnostic} />
-        <DiagnosisCTA onOpenDiagnostic={handleOpenDiagnostic} />
-        <FAQSection />
-      </main>
-
-      <Footer onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <DiagnosticModal
-        isOpen={isDiagnosticOpen}
-        onClose={handleCloseDiagnostic}
-      />
-
-      <StickyMobileCTA onOpenDiagnostic={handleOpenDiagnostic} />
-    </div>
+    <>
+      <SchemaMarkup type="home" />
+      <HomeClient />
+    </>
   );
 }

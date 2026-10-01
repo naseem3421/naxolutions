@@ -106,9 +106,9 @@ export default function DiagnosticCaseTeardowns({ onOpenDiagnostic }: Diagnostic
             <Layers className="w-3.5 h-3.5" />
             System Architecture Teardowns
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FAF8F5] mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FAF8F5] mb-6">
             Real Pipeline Transformations: Before &amp; After Naxolutions
-          </h2>
+          </h1>
           <p className="text-base sm:text-lg text-[#FAF8F5]/70 leading-relaxed">
             See how fixing structural revenue leaks, lead latency, and broken follow-ups transforms sales output without spending a single extra rupee on advertising.
           </p>

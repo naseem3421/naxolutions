@@ -1,39 +1,39 @@
-'use client';
+import type { Metadata } from 'next';
+import ApproachClient from './ApproachClient';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { seoConfig } from '@/config/seo';
 
-import React, { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import AboutNaxolutions from '@/components/AboutNaxolutions';
-import NaxolutionsApproach from '@/components/NaxolutionsApproach';
-import FragmentedVsConnected from '@/components/FragmentedVsConnected';
-import AudienceSection from '@/components/AudienceSection';
-import Footer from '@/components/Footer';
-import DiagnosticModal from '@/components/DiagnosticModal';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+export const metadata: Metadata = {
+  title: 'Business Conversion Methodology & Approach | Naxolutions',
+  description:
+    'Discover how Naxolutions diagnoses and eliminates structural revenue leaks across the 10-stage customer journey. End-to-end principal conversion consulting.',
+  alternates: {
+    canonical: `${seoConfig.siteUrl}/approach`,
+  },
+  openGraph: {
+    title: 'Business Conversion Methodology & Approach | Naxolutions',
+    description:
+      'Connecting fragmented marketing vendors, websites, WhatsApp systems, and sales follow-up into a single revenue engine.',
+    url: `${seoConfig.siteUrl}/approach`,
+    siteName: 'Naxolutions',
+    type: 'website',
+  },
+};
 
 export default function ApproachPage() {
-  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
-
-  const handleOpenDiagnostic = () => setIsDiagnosticOpen(true);
-  const handleCloseDiagnostic = () => setIsDiagnosticOpen(false);
-
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1012] flex flex-col font-sans">
-      <Navigation onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <main className="flex-grow pt-16 sm:pt-20">
-        <AboutNaxolutions />
-        <NaxolutionsApproach onOpenDiagnostic={handleOpenDiagnostic} />
-        <FragmentedVsConnected />
-        <AudienceSection onOpenDiagnostic={handleOpenDiagnostic} />
-      </main>
-
-      <Footer onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <DiagnosticModal
-        isOpen={isDiagnosticOpen}
-        onClose={handleCloseDiagnostic}
+    <>
+      <SchemaMarkup
+        type="page"
+        title="Business Conversion Methodology & Approach"
+        description="Discover how Naxolutions diagnoses and eliminates structural revenue leaks across the 10-stage customer journey."
+        url="/approach"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Methodology', url: '/approach' },
+        ]}
       />
-      <StickyMobileCTA onOpenDiagnostic={handleOpenDiagnostic} />
-    </div>
+      <ApproachClient />
+    </>
   );
 }

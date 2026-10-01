@@ -1,37 +1,39 @@
-'use client';
+import type { Metadata } from 'next';
+import WhatWeBuildClient from './WhatWeBuildClient';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { seoConfig } from '@/config/seo';
 
-import React, { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import WhatWeActuallyBuild from '@/components/WhatWeActuallyBuild';
-import RedFlagsChecklist from '@/components/RedFlagsChecklist';
-import DiagnosisCTA from '@/components/DiagnosisCTA';
-import Footer from '@/components/Footer';
-import DiagnosticModal from '@/components/DiagnosticModal';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+export const metadata: Metadata = {
+  title: 'Business Conversion Architecture & Building Blocks | Naxolutions',
+  description:
+    'Explore the 7 custom conversion system building blocks Naxolutions deploys: conversion websites, intake qualification, WhatsApp systems, follow-up, and measurement.',
+  alternates: {
+    canonical: `${seoConfig.siteUrl}/what-we-build`,
+  },
+  openGraph: {
+    title: 'Business Conversion Architecture & Building Blocks | Naxolutions',
+    description:
+      'We select and build the specific system components required to fix your business revenue leaks.',
+    url: `${seoConfig.siteUrl}/what-we-build`,
+    siteName: 'Naxolutions',
+    type: 'website',
+  },
+};
 
 export default function WhatWeBuildPage() {
-  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
-
-  const handleOpenDiagnostic = () => setIsDiagnosticOpen(true);
-  const handleCloseDiagnostic = () => setIsDiagnosticOpen(false);
-
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1012] flex flex-col font-sans">
-      <Navigation onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <main className="flex-grow pt-16 sm:pt-20">
-        <WhatWeActuallyBuild onOpenDiagnostic={handleOpenDiagnostic} />
-        <RedFlagsChecklist onOpenDiagnostic={handleOpenDiagnostic} />
-        <DiagnosisCTA onOpenDiagnostic={handleOpenDiagnostic} />
-      </main>
-
-      <Footer onOpenDiagnostic={handleOpenDiagnostic} />
-
-      <DiagnosticModal
-        isOpen={isDiagnosticOpen}
-        onClose={handleCloseDiagnostic}
+    <>
+      <SchemaMarkup
+        type="page"
+        title="Business Conversion Architecture & Building Blocks"
+        description="Explore the 7 custom conversion system building blocks Naxolutions deploys to fix business revenue leaks."
+        url="/what-we-build"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'What We Build', url: '/what-we-build' },
+        ]}
       />
-      <StickyMobileCTA onOpenDiagnostic={handleOpenDiagnostic} />
-    </div>
+      <WhatWeBuildClient />
+    </>
   );
 }

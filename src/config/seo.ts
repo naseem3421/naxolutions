@@ -2,7 +2,7 @@ export const seoConfig = {
   brandName: 'Naxolutions',
   legalName: 'Naxolutions Business Conversion Consultancy',
   tagline: 'The Architect of the Business\'s Conversion System',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://naxolutions.com',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.naxolutions.com',
   defaultTitle: 'Naxolutions | Business Conversion Consultancy Chennai',
   titleTemplate: '%s | Naxolutions Business Conversion Consultancy',
   defaultDescription:

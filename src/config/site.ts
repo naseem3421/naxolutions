@@ -3,7 +3,7 @@ export const siteConfig = {
   title: 'Naxolutions | Business Conversion Consultancy',
   description:
     'Naxolutions helps businesses identify and fix the structural gaps between customer attention, enquiries, sales conversations, and revenue. THE ARCHITECT OF THE BUSINESS\'S CONVERSION SYSTEM.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://naxolutions.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.naxolutions.com',
   ogImage: '/og-image.png',
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contact@naxolutions.com',

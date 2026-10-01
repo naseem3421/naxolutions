@@ -6,13 +6,21 @@ import { ArrowRight, Menu, X, Activity, ChevronDown, Sparkles } from 'lucide-rea
 import { seoConfig } from '@/config/seo';
 
 interface NavigationProps {
-  onOpenDiagnostic: () => void;
+  onOpenDiagnostic?: () => void;
 }
 
 export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+
+  const handleCtaClick = () => {
+    if (onOpenDiagnostic) {
+      onOpenDiagnostic();
+    } else if (typeof window !== 'undefined') {
+      window.location.href = '/consultation';
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +144,7 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
             {/* 03. Right CTA Action */}
             <div className="hidden sm:flex lg:flex-1 items-center justify-end gap-3 flex-shrink-0">
               <button
-                onClick={onOpenDiagnostic}
+                onClick={handleCtaClick}
                 className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded transition-all duration-200 shadow-subtle group whitespace-nowrap"
               >
                 <Activity className="w-3.5 h-3.5 text-[#C84B27] group-hover:text-white transition-colors" />
@@ -147,7 +155,7 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
             {/* 04. Mobile Navigation Button */}
             <div className="flex lg:hidden items-center gap-2">
               <button
-                onClick={onOpenDiagnostic}
+                onClick={handleCtaClick}
                 className="px-3 py-1.5 text-[11px] font-semibold tracking-wider text-white bg-[#C84B27] rounded sm:hidden"
               >
                 Find Leak
@@ -249,7 +257,7 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenDiagnostic();
+                handleCtaClick();
               }}
               className="w-full text-center py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded flex items-center justify-center gap-2 transition-colors"
             >

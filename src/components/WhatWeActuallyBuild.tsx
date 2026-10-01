@@ -76,7 +76,7 @@ export default function WhatWeActuallyBuild({ onOpenDiagnostic }: WhatWeActually
             System Building Blocks
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight">
             Sometimes the missing piece is technology.
             <br />
             Sometimes it's messaging.
@@ -84,7 +84,7 @@ export default function WhatWeActuallyBuild({ onOpenDiagnostic }: WhatWeActually
             Sometimes it's process.
             <br />
             <span className="text-[#C84B27]">Usually, it's the connection between them.</span>
-          </h2>
+          </h1>
 
           <p className="text-lg text-[#4A4E58] leading-relaxed max-w-3xl">
             We do not sell pre-packaged service menus or standard monthly retainers. We select and build the specific system components required to fix your business's revenue leaks.

@@ -14,9 +14,9 @@ export default function AboutNaxolutions() {
               Firm Philosophy
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight">
               Naxolutions exists because businesses don't need another disconnected vendor.
-            </h2>
+            </h1>
           </div>
 
           {/* Philosophy Body */}
