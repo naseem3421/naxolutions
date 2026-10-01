@@ -88,6 +88,11 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="hover:text-white transition-colors">
+                  Insights &amp; Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/case-studies" className="hover:text-white transition-colors">
                   Case Studies
                 </Link>

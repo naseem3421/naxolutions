@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import TheRealProblem from '@/components/TheRealProblem';
 import RevenueJourney from '@/components/RevenueJourney';
 import RevenueLeakageCalculator from '@/components/RevenueLeakageCalculator';
+import HomepageInsights from '@/components/HomepageInsights';
 import DiagnosisCTA from '@/components/DiagnosisCTA';
 import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
@@ -32,6 +33,7 @@ export default function HomeClient() {
         <TheRealProblem />
         <RevenueJourney onOpenDiagnostic={handleOpenDiagnostic} />
         <RevenueLeakageCalculator onOpenDiagnostic={handleOpenDiagnostic} />
+        <HomepageInsights />
         <DiagnosisCTA onOpenDiagnostic={handleOpenDiagnostic} />
         <FAQSection />
       </main>

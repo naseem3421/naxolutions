@@ -126,10 +126,10 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
                 </Link>
 
                 <Link
-                  href="/case-studies"
+                  href="/blog"
                   className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-center whitespace-nowrap inline-flex items-center justify-center text-[#4A4E58] hover:text-[#C84B27] hover:bg-[#FAF8F5] rounded-full transition-all"
                 >
-                  Case Studies
+                  Insights
                 </Link>
 
                 <Link
@@ -209,11 +209,11 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
               <span className="text-[#737887]">→</span>
             </Link>
             <Link
-              href="/case-studies"
+              href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="py-2.5 border-b border-[#E6E1D6] flex items-center justify-between"
             >
-              <span>Case Studies</span>
+              <span>Insights</span>
               <span className="text-[#737887]">→</span>
             </Link>
             <Link

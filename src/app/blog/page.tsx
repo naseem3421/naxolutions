@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BookOpen, ArrowRight, Layers, HelpCircle } from 'lucide-react';
+import { BookOpen, ArrowRight, Layers, HelpCircle, FileText } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SchemaMarkup from '@/components/SchemaMarkup';
@@ -65,6 +65,29 @@ export default function BlogIndexPage() {
             <p className="editorial-heading text-lg text-[#4A4E58] italic leading-relaxed">
               "Technical analysis, breakdown guides, and system architecture for enterprise conversion leaders."
             </p>
+          </div>
+
+          {/* Content Sub-Navigation (Articles vs Case Studies) */}
+          <div className="flex flex-wrap items-center gap-3 pb-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#737887]">
+              INSIGHTS HUB:
+            </span>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/blog"
+                className="px-3.5 py-1.5 rounded-full bg-[#0F1012] text-white text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-subtle"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-[#C84B27]" />
+                <span>Articles</span>
+              </Link>
+              <Link
+                href="/case-studies"
+                className="px-3.5 py-1.5 rounded-full bg-white border border-[#E6E1D6] text-[#4A4E58] hover:text-[#0F1012] hover:border-[#0F1012] text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-1.5 transition-all"
+              >
+                <FileText className="w-3.5 h-3.5 text-[#737887]" />
+                <span>Case Studies</span>
+              </Link>
+            </div>
           </div>
 
           {/* Category Filter Pills */}

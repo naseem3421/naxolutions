@@ -162,7 +162,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Main Article Content */}
           <div
-            className="prose prose-neutral max-w-none text-[#0F1012] leading-relaxed space-y-6"
+            className="prose max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
