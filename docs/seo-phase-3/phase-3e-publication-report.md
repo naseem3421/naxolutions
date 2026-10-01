@@ -74,7 +74,9 @@ Phase 3E has been executed for the second batch of approved articles (Articles 4
 
 - **Build Result:** `npm run build` executed successfully.
   - 29 static routes built, including all 6 published blog posts under `● /blog/[slug]`.
-- **Deployment:** Committed to repository and pushed to `origin/main`.
+- **Git Commit:** `de7d4fc` (`feat: publish Phase 3E Articles 4-6 to production blog`) pushed to `origin/main`.
+- **Hostinger VPS Build:** Completed successfully (Build ID `01a0f7ee-b00c-71df-bd82-6929df1bb57f`) in 47s.
+- **Live HTTP Verification:** Verified HTTP 200, H1 headers, Canonical tags, Article JSON-LD, and internal links for all live URLs via automated script.
 
 ---
 
