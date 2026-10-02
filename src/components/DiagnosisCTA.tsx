@@ -79,7 +79,7 @@ export default function DiagnosisCTA({ onOpenDiagnostic }: DiagnosisCTAProps) {
               </Link>
             </div>
 
-            <span className="text-xs font-mono text-[#737887]">
+            <span className="text-xs font-mono text-[#A0A6B2]">
               No generic agency pitch • Direct senior architecture review
             </span>
           </div>

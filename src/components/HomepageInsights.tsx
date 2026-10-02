@@ -53,6 +53,7 @@ export default function HomepageInsights() {
                 <h3 className="text-lg font-bold text-[#0F1012] leading-snug">
                   <Link
                     href={`/blog/${post.slug}`}
+                    aria-label={`Read full article: ${post.title}`}
                     className="hover:text-[#C84B27] transition-colors"
                   >
                     {post.title}
@@ -64,9 +65,10 @@ export default function HomepageInsights() {
               </div>
 
               <div className="pt-4 border-t border-[#E6E1D6] flex items-center justify-between">
-                <span className="text-xs text-[#737887] font-medium">By {post.author.name}</span>
+                <span className="text-xs text-[#4A4E58] font-medium">By {post.author.name}</span>
                 <Link
                   href={`/blog/${post.slug}`}
+                  aria-label={`Read article: ${post.title}`}
                   className="text-xs font-bold uppercase tracking-wider text-[#C84B27] inline-flex items-center gap-1 hover:underline"
                 >
                   <span>Read Article</span>

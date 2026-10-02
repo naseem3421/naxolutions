@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Calculator, ArrowRight, AlertTriangle, TrendingUp } from 'lucide-react';
 
 const DEAL_VALUE_STEPS = [
@@ -74,7 +73,7 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FAF8F5] mb-6">
             Calculate Your Business&apos;s Monthly Revenue Leakage
           </h2>
-          <p className="text-base sm:text-lg text-[#FAF8F5]/70 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#FAF8F5]/80 leading-relaxed">
             Most businesses assume they need more ad spend to grow. In reality, disconnected follow-ups and website leaks bleed up to 60% of potential revenue from traffic you already paid for.
           </p>
         </div>
@@ -89,21 +88,28 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             {/* Slider 1: Monthly Enquiries */}
             <div className="space-y-3">
               <div className="flex justify-between items-center text-sm">
-                <label className="text-[#FAF8F5]/80 font-medium">Monthly Qualified Enquiries / Leads</label>
+                <label htmlFor="calc-monthly-enquiries" className="text-[#FAF8F5]/90 font-medium">
+                  Monthly Qualified Enquiries / Leads
+                </label>
                 <span className="text-[#C84B27] font-mono font-bold text-base bg-[#C84B27]/10 px-2.5 py-1 rounded border border-[#C84B27]/20">
                   {enquiries.toLocaleString('en-IN')}
                 </span>
               </div>
               <input
+                id="calc-monthly-enquiries"
                 type="range"
                 min="20"
                 max="3000"
                 step="10"
                 value={enquiries}
+                aria-label="Monthly Qualified Enquiries or Leads"
+                aria-valuemin={20}
+                aria-valuemax={3000}
+                aria-valuenow={enquiries}
                 onChange={(e) => setEnquiries(Number(e.target.value))}
-                className="w-full h-2 bg-[#FAF8F5]/10 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
+                className="w-full h-2 bg-[#FAF8F5]/20 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
               />
-              <div className="flex justify-between text-xs text-[#FAF8F5]/40 font-mono">
+              <div className="flex justify-between text-xs text-[#FAF8F5]/75 font-mono">
                 <span>20 leads</span>
                 <span>3,000 leads</span>
               </div>
@@ -112,21 +118,28 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             {/* Slider 2: Average Deal Value */}
             <div className="space-y-3">
               <div className="flex justify-between items-center text-sm">
-                <label className="text-[#FAF8F5]/80 font-medium">Average Customer Value (Deal Size)</label>
+                <label htmlFor="calc-average-deal-value" className="text-[#FAF8F5]/90 font-medium">
+                  Average Customer Value (Deal Size)
+                </label>
                 <span className="text-[#C84B27] font-mono font-bold text-base bg-[#C84B27]/10 px-2.5 py-1 rounded border border-[#C84B27]/20">
                   {formatCurrency(dealValue)}
                 </span>
               </div>
               <input
+                id="calc-average-deal-value"
                 type="range"
                 min="0"
                 max={DEAL_VALUE_STEPS.length - 1}
                 step="1"
                 value={getDealStepIndex(dealValue)}
+                aria-label="Average Customer Value Deal Size"
+                aria-valuemin={0}
+                aria-valuemax={DEAL_VALUE_STEPS.length - 1}
+                aria-valuenow={getDealStepIndex(dealValue)}
                 onChange={(e) => setDealValue(DEAL_VALUE_STEPS[Number(e.target.value)])}
-                className="w-full h-2 bg-[#FAF8F5]/10 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
+                className="w-full h-2 bg-[#FAF8F5]/20 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
               />
-              <div className="flex justify-between text-xs text-[#FAF8F5]/40 font-mono">
+              <div className="flex justify-between text-xs text-[#FAF8F5]/75 font-mono">
                 <span>₹10,000</span>
                 <span>₹10 Cr</span>
               </div>
@@ -135,40 +148,43 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             {/* Slider 3: Current Close Rate */}
             <div className="space-y-3">
               <div className="flex justify-between items-center text-sm">
-                <label className="text-[#FAF8F5]/80 font-medium">Current Lead-to-Sale Conversion Rate</label>
+                <label htmlFor="calc-conversion-close-rate" className="text-[#FAF8F5]/90 font-medium">
+                  Current Lead-to-Sale Conversion Rate
+                </label>
                 <span className="text-[#C84B27] font-mono font-bold text-base bg-[#C84B27]/10 px-2.5 py-1 rounded border border-[#C84B27]/20">
                   {currentCloseRate}%
                 </span>
               </div>
               <input
+                id="calc-conversion-close-rate"
                 type="range"
                 min="1"
                 max="20"
                 step="0.5"
                 value={currentCloseRate}
+                aria-label="Current Lead to Sale Conversion Rate"
+                aria-valuemin={1}
+                aria-valuemax={20}
+                aria-valuenow={currentCloseRate}
                 onChange={(e) => setCurrentCloseRate(Number(e.target.value))}
-                className="w-full h-2 bg-[#FAF8F5]/10 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
+                className="w-full h-2 bg-[#FAF8F5]/20 rounded-lg appearance-none cursor-pointer accent-[#C84B27]"
               />
-              <div className="flex justify-between text-xs text-[#FAF8F5]/40 font-mono">
+              <div className="flex justify-between text-xs text-[#FAF8F5]/75 font-mono">
                 <span>1% (Low conversion)</span>
                 <span>20% (High conversion)</span>
               </div>
             </div>
 
-            <p className="text-xs text-[#FAF8F5]/40 leading-relaxed italic border-t border-[#FAF8F5]/10 pt-4">
-              *Calculations are based on conservative system fixes: eliminating 4+ hour response delays, implementing automated triage, and structuring 7-step WhatsApp & CRM follow-up protocols.
+            <p className="text-xs text-[#FAF8F5]/70 leading-relaxed italic border-t border-[#FAF8F5]/10 pt-4">
+              *Calculations are based on conservative system fixes: eliminating 4+ hour response delays, implementing automated triage, and structuring 7-step WhatsApp &amp; CRM follow-up protocols.
             </p>
           </div>
 
           {/* Results Panel (Right) */}
           <div className="lg:col-span-6 space-y-6">
             {/* Main Alert Card */}
-            <motion.div 
-              key={`${enquiries}-${dealValue}-${currentCloseRate}`}
-              initial={{ scale: 0.98, opacity: 0.9 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.2 }}
-              className="bg-[#16181B] border-2 border-[#C84B27]/40 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-2xl"
+            <div 
+              className="bg-[#16181B] border-2 border-[#C84B27]/40 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-2xl transition-all duration-300"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono font-semibold tracking-wider text-[#C84B27] uppercase bg-[#C84B27]/15 px-3 py-1 rounded">
@@ -178,45 +194,45 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
               </div>
 
               <div>
-                <div className="text-xs text-[#FAF8F5]/50 font-mono mb-1">UNCAPTURED REVENUE PER MONTH</div>
+                <div className="text-xs text-[#FAF8F5]/70 font-mono mb-1">UNCAPTURED REVENUE PER MONTH</div>
                 <div className="text-4xl sm:text-5xl font-mono font-bold text-[#C84B27] tracking-tight">
                   {formatCurrency(monthlyLeak)}
-                  <span className="text-sm font-sans font-normal text-[#FAF8F5]/60 ml-2">/ month</span>
+                  <span className="text-sm font-sans font-normal text-[#FAF8F5]/80 ml-2">/ month</span>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-[#FAF8F5]/10 grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-xs text-[#FAF8F5]/50 font-mono">ANNUALIZED LOSS</div>
+                  <div className="text-xs text-[#FAF8F5]/70 font-mono">ANNUALIZED LOSS</div>
                   <div className="text-xl font-mono font-semibold text-[#FAF8F5] mt-1">
                     {formatCurrency(annualLeak)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-[#FAF8F5]/50 font-mono">OPTIMIZED CLOSE RATE</div>
+                  <div className="text-xs text-[#FAF8F5]/70 font-mono">OPTIMIZED CLOSE RATE</div>
                   <div className="text-xl font-mono font-semibold text-emerald-400 mt-1 flex items-center gap-1">
                     <TrendingUp className="w-4 h-4" />
                     {targetCloseRate}%
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Comparison Metrics */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-[#16181B] border border-[#FAF8F5]/10 rounded-xl p-5">
-                <div className="text-xs font-mono text-[#FAF8F5]/50 mb-1">CURRENT MONTHLY REVENUE</div>
+                <div className="text-xs font-mono text-[#FAF8F5]/70 mb-1">CURRENT MONTHLY REVENUE</div>
                 <div className="text-lg font-mono font-semibold text-[#FAF8F5]">
                   {formatCurrency(currentMonthlyRevenue)}
                 </div>
-                <div className="text-xs text-[#FAF8F5]/40 mt-1">At {currentCloseRate}% close rate</div>
+                <div className="text-xs text-[#FAF8F5]/60 mt-1">At {currentCloseRate}% close rate</div>
               </div>
               <div className="bg-[#16181B] border border-emerald-500/20 bg-emerald-500/5 rounded-xl p-5">
                 <div className="text-xs font-mono text-emerald-400 mb-1">CONNECTED SYSTEM REVENUE</div>
                 <div className="text-lg font-mono font-semibold text-emerald-300">
                   {formatCurrency(optimizedMonthlyRevenue)}
                 </div>
-                <div className="text-xs text-emerald-400/60 mt-1">At {targetCloseRate}% close rate</div>
+                <div className="text-xs text-emerald-300/80 mt-1">At {targetCloseRate}% close rate</div>
               </div>
             </div>
 
@@ -226,10 +242,10 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
                 onClick={onOpenDiagnostic}
                 className="w-full bg-[#C84B27] hover:bg-[#b03f1f] text-[#FAF8F5] py-4 px-6 rounded-xl font-medium text-base transition-all duration-200 shadow-lg shadow-[#C84B27]/25 flex items-center justify-center gap-2 group"
               >
-                <span>Audit & Plug Your Revenue Leaks</span>
+                <span>Audit &amp; Plug Your Revenue Leaks</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <p className="text-center text-xs text-[#FAF8F5]/50 mt-3">
+              <p className="text-center text-xs text-[#FAF8F5]/70 mt-3">
                 100% confidential. No generic templates. Direct 14-point audit of your pipeline.
               </p>
             </div>

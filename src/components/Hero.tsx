@@ -65,10 +65,15 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl">
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#F3EFE7] border border-[#E6E1D6] text-xs font-semibold text-[#4A4E58] uppercase tracking-wider mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#C84B27] animate-pulse" />
-            System Diagnosis
+          {/* Tagline Badge & Anti-Agency Contrast */}
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#F3EFE7] border border-[#E6E1D6] text-xs font-semibold text-[#4A4E58] uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#C84B27] animate-pulse" />
+              Business Conversion Consultancy // Chennai &amp; Global
+            </div>
+            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white border border-[#E6E1D6] text-xs font-mono text-[#0F1012]">
+              <span className="text-[#C84B27] font-bold">≠</span> Not an ad agency • We fix the pipeline from click to cash
+            </div>
           </div>
 
           {/* Main Editorial Headlines */}
@@ -81,7 +86,7 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
           </p>
 
           {/* Core Explanation */}
-          <p className="text-lg sm:text-xl text-[#4A4E58] leading-relaxed max-w-3xl mb-10">
+          <p className="text-lg sm:text-xl text-[#4A4E58] leading-relaxed max-w-3xl mb-6">
             Most businesses already have the pieces — marketing, a website, enquiries, salespeople, WhatsApp, follow-ups.
             <br className="hidden sm:inline" />
             <span className="text-[#0F1012] font-semibold">
@@ -89,23 +94,44 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
             </span>
           </p>
 
-          {/* CTA Group */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16">
-            <button
-              onClick={onOpenDiagnostic}
-              className="inline-flex items-center justify-center gap-3 px-7 py-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded shadow-card transition-all duration-200 group"
-            >
-              <span>Find Where You're Losing Revenue</span>
-              <ArrowRight className="w-4 h-4 text-[#C84B27] group-hover:text-white transition-colors group-hover:translate-x-0.5" />
-            </button>
+          {/* Economic Cost Benchmark */}
+          <div className="bg-white border-l-2 border-[#C84B27] border-y border-r border-[#E6E1D6] p-4 rounded-r-lg max-w-3xl mb-10 text-xs sm:text-sm text-[#4A4E58] flex items-start gap-3">
+            <span className="font-mono font-bold text-[#C84B27] text-xs uppercase bg-[#FDF4F0] px-2 py-0.5 rounded border border-[#E8D5CC] flex-shrink-0 mt-0.5">
+              The Reality
+            </span>
+            <p>
+              Across commercial B2B audits, an average of <span className="font-bold text-[#0F1012]">63% of qualified inbound enquiry value leaks</span> between first response, sales qualification, and proposal follow-up — before sales conversations even mature.
+            </p>
+          </div>
 
-            <a
-              href="#journey"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#0F1012] bg-white border border-[#E6E1D6] hover:border-[#0F1012] hover:bg-[#F3EFE7] rounded transition-all duration-200"
-            >
-              <span>See How The System Breaks</span>
-              <ChevronRight className="w-4 h-4 text-[#737887]" />
-            </a>
+          {/* CTA Group */}
+          <div className="space-y-4 mb-16">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <button
+                onClick={onOpenDiagnostic}
+                className="inline-flex items-center justify-center gap-3 px-7 py-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded shadow-card transition-all duration-200 group"
+              >
+                <span>Audit Your Conversion Pipeline</span>
+                <ArrowRight className="w-4 h-4 text-[#C84B27] group-hover:text-white transition-colors group-hover:translate-x-0.5" />
+              </button>
+
+              <a
+                href="#journey"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#0F1012] bg-white border border-[#E6E1D6] hover:border-[#0F1012] hover:bg-[#F3EFE7] rounded transition-all duration-200"
+              >
+                <span>See How The System Breaks</span>
+                <ChevronRight className="w-4 h-4 text-[#4A4E58]" />
+              </a>
+            </div>
+
+            {/* Risk Reversal Microcopy */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[#4A4E58]">
+              <span>✓ 3-minute structured intake</span>
+              <span>•</span>
+              <span>✓ No agency sales pitch</span>
+              <span>•</span>
+              <span>✓ 100% confidential senior review</span>
+            </div>
           </div>
         </div>
 
@@ -133,6 +159,7 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
                 <div key={node.id} className="relative">
                   <button
                     onClick={() => setActiveFrictionNode(index)}
+                    aria-label={`Inspect pipeline stage 0${index + 1}: ${node.label} - ${node.subtext}`}
                     className={`w-full text-left p-4 rounded border transition-all duration-200 relative ${
                       isActive
                         ? 'border-[#0F1012] bg-[#FAF8F5] ring-1 ring-[#0F1012] shadow-subtle'
@@ -147,7 +174,7 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
                     )}
 
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#737887]">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#4A4E58]">
                         0{index + 1}
                       </span>
                       {isActive && !isRevenue && (
@@ -159,7 +186,7 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
                       {node.label}
                     </div>
 
-                    <div className="text-[11px] text-[#737887]">
+                    <div className="text-[11px] text-[#4A4E58]">
                       {node.subtext}
                     </div>
 
@@ -192,8 +219,8 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
               <p className="text-sm font-medium text-[#0F1012]">
                 {systemNodes[activeFrictionNode].leakDescription}
               </p>
-              <div className="text-xs text-[#737887]">
-                <span className="font-semibold text-[#4A4E58]">Common Commercial Symptom:</span> {systemNodes[activeFrictionNode].symptom}
+              <div className="text-xs text-[#4A4E58]">
+                <span className="font-semibold text-[#0F1012]">Common Commercial Symptom:</span> {systemNodes[activeFrictionNode].symptom}
               </div>
             </div>
 

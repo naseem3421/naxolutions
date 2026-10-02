@@ -94,11 +94,14 @@ export default function FAQSection() {
                 }`}
               >
                 <button
+                  id={`faq-question-${idx}`}
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                   className="w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#0F1012]"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-normal text-[#737887]">
+                    <span className="text-xs font-mono font-normal text-[#4A4E58]">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
                     {faq.question}
@@ -109,7 +112,12 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-0 text-sm text-[#4A4E58] leading-relaxed border-t border-[#E6E1D6]/60 mt-1">
+                  <div
+                    id={`faq-answer-${idx}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${idx}`}
+                    className="px-6 pb-6 pt-0 text-sm text-[#4A4E58] leading-relaxed border-t border-[#E6E1D6]/60 mt-1"
+                  >
                     <p className="pt-4">{faq.answer}</p>
                   </div>
                 )}

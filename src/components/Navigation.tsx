@@ -75,6 +75,10 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
                   onMouseLeave={() => setServicesDropdownOpen(false)}
                 >
                   <button
+                    aria-expanded={servicesDropdownOpen}
+                    aria-haspopup="true"
+                    aria-label="Services navigation menu"
+                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                     className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-center whitespace-nowrap text-[#4A4E58] hover:text-[#C84B27] hover:bg-[#FAF8F5] rounded-full transition-all inline-flex items-center justify-center gap-1"
                   >
                     <span>Services</span>
@@ -163,7 +167,8 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 text-[#0F1012] hover:text-[#C84B27] focus:outline-none"
-                aria-label="Toggle Menu"
+                aria-expanded={mobileMenuOpen}
+                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>

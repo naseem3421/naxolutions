@@ -10,13 +10,13 @@ export default function AboutNaxolutions() {
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Section Header */}
           <div className="space-y-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F3EFE7] border border-[#E6E1D6] text-xs font-semibold text-[#737887] uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F3EFE7] border border-[#E6E1D6] text-xs font-semibold text-[#4A4E58] uppercase tracking-wider">
               Firm Philosophy
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight max-w-3xl mx-auto">
               Naxolutions exists because businesses don't need another disconnected vendor.
-            </h1>
+            </h2>
           </div>
 
           {/* Philosophy Body */}
@@ -49,7 +49,7 @@ export default function AboutNaxolutions() {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-lg text-[#0F1012]">Naseem</span>
-                <span className="text-xs font-mono text-[#737887] font-medium px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E6E1D6]">
+                <span className="text-xs font-mono text-[#4A4E58] font-medium px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E6E1D6]">
                   Business Conversion Consultant &amp; System Architect
                 </span>
               </div>
@@ -70,10 +70,10 @@ export default function AboutNaxolutions() {
                 Direct Accountability
               </span>
             </div>
-            <p className="text-sm text-[#FAF8F5]/80 leading-relaxed">
+            <p className="text-sm text-[#FAF8F5]/90 leading-relaxed">
               When you engage Naxolutions, your business model, customer journey audit, and conversion system architecture are directed personally by a senior principal consultant. You will never be delegated to junior account managers, interns, or outsourced call reps.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs font-mono text-[#FAF8F5]/60">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs font-mono text-[#FAF8F5]/80">
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-[#C84B27]" />
                 <span>Direct Senior Access</span>

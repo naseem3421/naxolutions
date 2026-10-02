@@ -1,17 +1,44 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import TheRealProblem from '@/components/TheRealProblem';
 import RevenueJourney from '@/components/RevenueJourney';
-import RevenueLeakageCalculator from '@/components/RevenueLeakageCalculator';
 import HomepageInsights from '@/components/HomepageInsights';
 import DiagnosisCTA from '@/components/DiagnosisCTA';
-import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
-import DiagnosticModal from '@/components/DiagnosticModal';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+
+// Code-split below-the-fold and client-heavy interactive components
+const AudienceSection = dynamic(() => import('@/components/AudienceSection'), {
+  ssr: true,
+});
+
+const DiagnosticCaseTeardowns = dynamic(() => import('@/components/DiagnosticCaseTeardowns'), {
+  ssr: true,
+});
+
+const RevenueLeakageCalculator = dynamic(() => import('@/components/RevenueLeakageCalculator'), {
+  loading: () => <div className="py-24 bg-[#0F1012] min-h-[480px]" />,
+  ssr: true,
+});
+
+const AboutNaxolutions = dynamic(() => import('@/components/AboutNaxolutions'), {
+  ssr: true,
+});
+
+const FAQSection = dynamic(() => import('@/components/FAQSection'), {
+  ssr: true,
+});
+
+const DiagnosticModal = dynamic(() => import('@/components/DiagnosticModal'), {
+  ssr: false,
+});
+
+const StickyMobileCTA = dynamic(() => import('@/components/StickyMobileCTA'), {
+  ssr: false,
+});
 
 export default function HomeClient() {
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
@@ -30,9 +57,12 @@ export default function HomeClient() {
 
       <main className="flex-grow">
         <Hero onOpenDiagnostic={handleOpenDiagnostic} />
+        <AudienceSection onOpenDiagnostic={handleOpenDiagnostic} />
         <TheRealProblem />
+        <DiagnosticCaseTeardowns onOpenDiagnostic={handleOpenDiagnostic} />
         <RevenueJourney onOpenDiagnostic={handleOpenDiagnostic} />
         <RevenueLeakageCalculator onOpenDiagnostic={handleOpenDiagnostic} />
+        <AboutNaxolutions />
         <HomepageInsights />
         <DiagnosisCTA onOpenDiagnostic={handleOpenDiagnostic} />
         <FAQSection />

@@ -69,6 +69,7 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
                 <button
                   key={stage.id}
                   onClick={() => setSelectedStage(index)}
+                  aria-label={`Inspect Stage ${stage.code}: ${stage.name}`}
                   className={`p-3 rounded border text-left transition-all duration-200 relative flex flex-col justify-between min-h-[110px] ${
                     isSelected
                       ? 'border-[#0F1012] bg-[#FAF8F5] ring-2 ring-[#0F1012]'
@@ -79,16 +80,19 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
                 >
                   {/* Stage Code & Flag Toggle */}
                   <div className="flex items-center justify-between w-full mb-1">
-                    <span className="text-[10px] font-mono font-bold text-[#737887]">
+                    <span className="text-[10px] font-mono font-bold text-[#4A4E58]">
                       {stage.code}
                     </span>
                     <span
                       onClick={(e) => toggleFlag(stage.id, e)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={isFlagged ? `Remove leak flag from Stage ${stage.code}: ${stage.name}` : `Flag Stage ${stage.code}: ${stage.name} as leak point`}
                       title={isFlagged ? 'Flagged as friction point' : 'Flag stage'}
                       className={`w-3.5 h-3.5 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
                         isFlagged
                           ? 'bg-[#C84B27] text-white'
-                          : 'bg-[#E6E1D6] text-[#737887] hover:bg-[#B0A894]'
+                          : 'bg-[#E6E1D6] text-[#4A4E58] hover:bg-[#B0A894]'
                       }`}
                     >
                       !
@@ -121,7 +125,7 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
                 <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#0F1012] text-white">
                   STAGE {activeStageData.code}
                 </span>
-                <span className="text-xs font-mono uppercase tracking-wider text-[#737887]">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#4A4E58]">
                   {activeStageData.name}
                 </span>
               </div>
@@ -130,6 +134,7 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
               </h3>
               <button
                 onClick={(e) => toggleFlag(activeStageData.id, e)}
+                aria-label={flaggedStages.includes(activeStageData.id) ? 'Remove friction flag' : 'Flag as potential leak'}
                 className={`inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-colors ${
                   flaggedStages.includes(activeStageData.id)
                     ? 'bg-[#C84B27] text-white'
@@ -153,7 +158,7 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
               <p className="text-sm font-medium text-[#0F1012]">
                 {activeStageData.commonBreak}
               </p>
-              <div className="text-xs text-[#737887] font-mono mt-2">
+              <div className="text-xs text-[#4A4E58] font-mono mt-2">
                 Diagnostic Indicator: {activeStageData.diagnosticMetric}
               </div>
             </div>
@@ -161,7 +166,7 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
             {/* Commercial Consequence & Action */}
             <div className="space-y-3 border-t md:border-t-0 md:border-l border-[#E6E1D6] pt-4 md:pt-0 md:pl-6 flex flex-col justify-between">
               <div>
-                <div className="text-xs font-mono uppercase tracking-wider text-[#737887] font-semibold">
+                <div className="text-xs font-mono uppercase tracking-wider text-[#4A4E58] font-semibold">
                   Commercial Result:
                 </div>
                 <p className="text-sm text-[#4A4E58]">
@@ -189,9 +194,9 @@ export default function RevenueJourney({ onOpenDiagnostic }: RevenueJourneyProps
               <Activity className="w-4 h-4" />
               <span>Diagnostic Revenue Leak Summary</span>
             </div>
-            <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
               You flagged {flaggedStages.length} journey stages with potential friction.
-            </h4>
+            </h3>
             <p className="text-sm text-[#B0B6C5]">
               Naxolutions views these not as marketing failures, but as connected system architecture problems.
             </p>

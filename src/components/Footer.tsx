@@ -40,14 +40,14 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
               "From attention to revenue — without the unnecessary gaps."
             </p>
 
-            <p className="text-xs text-[#737887] leading-relaxed max-w-sm">
+            <p className="text-xs text-[#A0A6B2] leading-relaxed max-w-sm">
               Naxolutions helps businesses identify and fix the structural problems between customer attention, enquiry, sales conversation, and revenue.
             </p>
           </div>
 
           {/* System Services Links */}
           <div className="md:col-span-3 space-y-3">
-            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#737887]">
+            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#A0A6B2]">
               SYSTEM SERVICES
             </div>
             <ul className="space-y-2 text-xs font-medium text-[#B0B6C5]">
@@ -63,7 +63,7 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
 
           {/* Site Navigation */}
           <div className="md:col-span-2 space-y-3">
-            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#737887]">
+            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#A0A6B2]">
               NAVIGATION
             </div>
             <ul className="space-y-2 text-xs font-medium text-[#B0B6C5]">
@@ -126,7 +126,7 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
 
           {/* Direct Channels */}
           <div className="md:col-span-3 space-y-3">
-            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#737887]">
+            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#A0A6B2]">
               DIRECT CHANNELS
             </div>
             <ul className="space-y-2 text-xs font-medium text-[#B0B6C5]">
@@ -136,13 +136,14 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Direct message on WhatsApp (opens in new tab)"
                     className="hover:text-white transition-colors inline-flex items-center gap-1"
                   >
                     <span>WhatsApp</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#737887]" />
+                    <ArrowUpRight className="w-3 h-3 text-[#A0A6B2]" />
                   </a>
                 ) : (
-                  <span className="text-[#737887] text-[11px]">
+                  <span className="text-[#A0A6B2] text-[11px]">
                     WhatsApp (Direct contact)
                   </span>
                 )}
@@ -150,10 +151,11 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
+                  aria-label="Send direct email to Naxolutions"
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   <span>Email</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#737887]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#A0A6B2]" />
                 </a>
               </li>
               <li>
@@ -162,13 +164,14 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
                     href={siteConfig.contact.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Naxolutions LinkedIn profile (opens in new tab)"
                     className="hover:text-white transition-colors inline-flex items-center gap-1"
                   >
                     <span>LinkedIn</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#737887]" />
+                    <ArrowUpRight className="w-3 h-3 text-[#A0A6B2]" />
                   </a>
                 ) : (
-                  <span className="text-[#737887] text-[11px]">LinkedIn</span>
+                  <span className="text-[#A0A6B2] text-[11px]">LinkedIn</span>
                 )}
               </li>
               <li>
@@ -177,13 +180,14 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
                     href={siteConfig.contact.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Naxolutions Instagram page (opens in new tab)"
                     className="hover:text-white transition-colors inline-flex items-center gap-1"
                   >
                     <span>Instagram</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#737887]" />
+                    <ArrowUpRight className="w-3 h-3 text-[#A0A6B2]" />
                   </a>
                 ) : (
-                  <span className="text-[#737887] text-[11px]">Instagram</span>
+                  <span className="text-[#A0A6B2] text-[11px]">Instagram</span>
                 )}
               </li>
             </ul>
@@ -191,7 +195,7 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#737887]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A0A6B2]">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} NAXOLUTIONS. All rights reserved.</span>
             <span>•</span>

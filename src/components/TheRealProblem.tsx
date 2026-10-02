@@ -46,7 +46,7 @@ export default function TheRealProblem() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#FAF8F5] border border-[#E6E1D6] text-xs font-semibold text-[#737887] uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#FAF8F5] border border-[#E6E1D6] text-xs font-semibold text-[#4A4E58] uppercase tracking-wider mb-4">
             The Real Problem
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1012] leading-tight mb-6">
@@ -74,7 +74,7 @@ export default function TheRealProblem() {
                 <div className="p-6 sm:p-8 space-y-6">
                   {/* Top Identifier */}
                   <div className="flex items-center justify-between border-b border-[#E6E1D6] pb-4">
-                    <span className="text-xs font-mono font-bold text-[#737887]">
+                    <span className="text-xs font-mono font-bold text-[#4A4E58]">
                       DIAGNOSIS CARD // {pair.id}
                     </span>
                     <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-[#F3EFE7] text-[#4A4E58]">
@@ -84,8 +84,8 @@ export default function TheRealProblem() {
 
                   {/* Looks Like (The Surface Symptom) */}
                   <div className="space-y-1">
-                    <div className="text-xs font-mono uppercase tracking-wider text-[#737887] flex items-center gap-1.5">
-                      <Eye className="w-3.5 h-3.5 text-[#737887]" />
+                    <div className="text-xs font-mono uppercase tracking-wider text-[#4A4E58] flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-[#4A4E58]" />
                       <span>Looks Like:</span>
                     </div>
                     <div className="text-xl font-bold text-[#0F1012] line-through decoration-[#C84B27] decoration-2">
@@ -99,9 +99,9 @@ export default function TheRealProblem() {
                       <HelpCircle className="w-3.5 h-3.5 text-[#C84B27]" />
                       <span>Actually Is:</span>
                     </div>
-                    <div className="text-lg font-bold text-[#0F1012]">
+                    <h3 className="text-lg font-bold text-[#0F1012]">
                       "{pair.reality}"
-                    </div>
+                    </h3>
                   </div>
 
                   {/* Deep Explanation */}
@@ -123,9 +123,9 @@ export default function TheRealProblem() {
         {/* Operational Note */}
         <div className="mt-12 p-6 rounded bg-[#FAF8F5] border border-[#E6E1D6] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <h4 className="text-sm font-bold text-[#0F1012] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#0F1012] uppercase tracking-wider">
               Diagnostic Observation
-            </h4>
+            </h3>
             <p className="text-sm text-[#4A4E58]">
               Notice how none of these problems are solved by simply buying another software tool or running more ad campaigns.
             </p>

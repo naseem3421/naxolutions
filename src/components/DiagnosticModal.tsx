@@ -120,13 +120,14 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
       tabIndex={-1}
       aria-modal="true"
       role="dialog"
+      aria-labelledby="diagnostic-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0F1012]/80 backdrop-blur-sm overflow-y-auto"
     >
       <div className="bg-white border border-[#E6E1D6] rounded-xl max-w-2xl w-full p-6 sm:p-8 relative shadow-card my-8 max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded text-[#737887] hover:text-[#0F1012] hover:bg-[#FAF8F5] transition-colors"
+          className="absolute top-5 right-5 p-2 rounded text-[#4A4E58] hover:text-[#0F1012] hover:bg-[#FAF8F5] transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -139,10 +140,10 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#FAF8F5] border border-[#E6E1D6] text-[11px] font-mono font-bold text-[#C84B27] uppercase tracking-wider">
                 DIAGNOSTIC INTAKE // STEP 0{step} OF 03
               </div>
-              <h3 className="text-2xl font-bold text-[#0F1012]">
+              <h2 id="diagnostic-modal-title" className="text-2xl font-bold text-[#0F1012]">
                 Find Where You're Losing Revenue
-              </h3>
-              <p className="text-xs text-[#4A4E58]">
+              </h2>
+              <p className="text-xs text-[#3B3E45]">
                 No commitment. No predefined package. No pitch disguised as a diagnosis.
               </p>
             </div>
@@ -231,10 +232,11 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-2">
+                  <label htmlFor="diagnostic-monthly-leads" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-2">
                     Estimated Monthly Enquiries / Leads Received:
                   </label>
                   <select
+                    id="diagnostic-monthly-leads"
                     value={monthlyLeads}
                     onChange={(e) => setMonthlyLeads(e.target.value)}
                     className="w-full p-3 border border-[#E6E1D6] rounded text-xs font-medium text-[#0F1012] bg-white focus:outline-none focus:border-[#0F1012]"
@@ -247,10 +249,11 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-2">
+                  <label htmlFor="diagnostic-context-notes" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-2">
                     Describe What Is Happening Between Enquiry & Revenue (Optional):
                   </label>
                   <textarea
+                    id="diagnostic-context-notes"
                     rows={4}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
@@ -263,7 +266,7 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="text-xs font-mono text-[#737887] hover:text-[#0F1012] uppercase tracking-wider"
+                    className="text-xs font-mono text-[#4A4E58] hover:text-[#0F1012] uppercase tracking-wider"
                   >
                     ← Back
                   </button>
@@ -287,25 +290,26 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                     DIAGNOSTIC SUMMARY PREVIEW:
                   </div>
                   <div className="text-[#0F1012]">
-                    <span className="text-[#737887]">Domain: </span>
+                    <span className="text-[#4A4E58]">Domain: </span>
                     {businessType}
                   </div>
                   <div className="text-[#0F1012]">
-                    <span className="text-[#737887]">Flagged Leaks: </span>
+                    <span className="text-[#4A4E58]">Flagged Leaks: </span>
                     {primaryFriction.length} points selected
                   </div>
                   <div className="text-[#0F1012]">
-                    <span className="text-[#737887]">Monthly Inflow: </span>
+                    <span className="text-[#4A4E58]">Monthly Inflow: </span>
                     {monthlyLeads}
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
+                    <label htmlFor="diagnostic-user-name" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
                       Your Name *
                     </label>
                     <input
+                      id="diagnostic-user-name"
                       type="text"
                       required
                       value={name}
@@ -317,10 +321,11 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
+                      <label htmlFor="diagnostic-user-email" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
                         Work Email *
                       </label>
                       <input
+                        id="diagnostic-user-email"
                         type="email"
                         required
                         value={email}
@@ -330,14 +335,15 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
+                      <label htmlFor="diagnostic-user-phone" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0F1012] mb-1">
                         WhatsApp / Phone (Direct)
                       </label>
                       <div className="relative flex items-center">
-                        <span className="absolute left-3 text-xs font-mono font-bold text-[#737887] select-none">
+                        <span className="absolute left-3 text-xs font-mono font-bold text-[#4A4E58] select-none">
                           🇮🇳 +91
                         </span>
                         <input
+                          id="diagnostic-user-phone"
                           type="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
@@ -354,7 +360,7 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                     type="button"
                     disabled={isSubmitting}
                     onClick={() => setStep(2)}
-                    className="text-xs font-mono text-[#737887] hover:text-[#0F1012] uppercase tracking-wider disabled:opacity-50"
+                    className="text-xs font-mono text-[#4A4E58] hover:text-[#0F1012] uppercase tracking-wider disabled:opacity-50"
                   >
                     ← Back
                   </button>

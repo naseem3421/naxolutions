@@ -95,6 +95,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sansFont.variable} scroll-smooth`}>
       <head>
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context Specification" />
+        <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Entity Specification" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
