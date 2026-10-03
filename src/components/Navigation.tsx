@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Menu, X, Activity, ChevronDown, Sparkles } from 'lucide-react';
 import { seoConfig } from '@/config/seo';
 
@@ -44,15 +45,22 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
             {/* 01. Brand Logo & Positioning Badge */}
             <div className="flex items-center lg:flex-1">
               <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-                <div className="w-8 h-8 rounded bg-[#0F1012] text-white flex items-center justify-center font-bold text-sm tracking-wider transition-transform group-hover:scale-105 shadow-subtle">
-                  N
+                <div className="relative w-9 h-9 rounded-lg overflow-hidden flex-shrink-0 bg-[#0F1012] p-1.5 shadow-subtle transition-transform group-hover:scale-105">
+                  <Image
+                    src="/logo-mark-white.png"
+                    alt="Naxolutions Logo"
+                    fill
+                    sizes="36px"
+                    className="object-contain p-1"
+                    priority
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-base sm:text-lg tracking-tight text-[#0F1012] leading-none">
                     NAXOLUTIONS
                   </span>
-                  <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-[#737887] font-medium mt-0.5">
-                    Conversion Consultancy
+                  <span className="text-[8px] sm:text-[9px] tracking-[0.18em] uppercase text-[#737887] font-semibold mt-1">
+                    BUILD • GROW • SCALE
                   </span>
                 </div>
               </Link>

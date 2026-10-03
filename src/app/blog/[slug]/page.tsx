@@ -98,7 +98,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       url: seoConfig.siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${seoConfig.siteUrl}/icon.svg`,
+        url: `${seoConfig.siteUrl}/logo.png`,
+        width: 1024,
+        height: 1024,
       },
     },
     mainEntityOfPage: {

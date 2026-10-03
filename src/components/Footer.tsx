@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { seoConfig } from '@/config/seo';
@@ -23,13 +24,24 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#2A2D34]">
           {/* Brand & Positioning */}
           <div className="md:col-span-4 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded bg-white text-[#0F1012] flex items-center justify-center font-bold text-sm">
-                N
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-9 h-9 rounded-lg overflow-hidden flex-shrink-0 bg-white/10 p-1.5 border border-white/10 transition-transform group-hover:scale-105">
+                <Image
+                  src="/logo-mark-white.png"
+                  alt="Naxolutions Logo"
+                  fill
+                  sizes="36px"
+                  className="object-contain p-1"
+                />
               </div>
-              <span className="font-bold text-xl tracking-tight text-white">
-                NAXOLUTIONS
-              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl tracking-tight text-white leading-none">
+                  NAXOLUTIONS
+                </span>
+                <span className="text-[9px] tracking-[0.2em] uppercase text-[#C84B27] font-semibold mt-1">
+                  BUILD • GROW • SCALE
+                </span>
+              </div>
             </Link>
 
             <div className="text-xs font-mono text-[#C84B27] uppercase tracking-wider font-semibold">

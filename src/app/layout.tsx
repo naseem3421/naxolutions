@@ -63,9 +63,19 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/icon.svg',
-    apple: '/icon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
   },
+  manifest: '/manifest.webmanifest',
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
@@ -76,8 +86,10 @@ const jsonLdData = {
   '@type': 'ProfessionalService',
   name: 'Naxolutions',
   url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
+  image: `${siteConfig.url}/logo.png`,
   description:
-    'Naxolutions is a Business Conversion Consultancy that helps businesses identify and fix the structural gaps between customer attention, enquiries, sales conversations, and revenue.',
+    'Naxolutions is a Business Conversion Consultancy that helps businesses identify and fix the structural gaps between customer attention, enquiries, sales conversations, and revenue. Build • Grow • Scale.',
   knowsAbout: [
     'Business Conversion Strategy',
     'Revenue Journey Diagnosis',
@@ -95,6 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sansFont.variable} scroll-smooth`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context Specification" />
         <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Entity Specification" />
         <script

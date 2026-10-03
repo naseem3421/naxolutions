@@ -30,8 +30,16 @@ export default function SchemaMarkup({
     name: seoConfig.brandName,
     legalName: seoConfig.legalName,
     url: seoConfig.siteUrl,
-    logo: `${seoConfig.siteUrl}/icon.svg`,
-    image: `${seoConfig.siteUrl}/og-image.png`,
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${seoConfig.siteUrl}/#logo`,
+      url: `${seoConfig.siteUrl}/logo.png`,
+      contentUrl: `${seoConfig.siteUrl}/logo.png`,
+      caption: `${seoConfig.brandName} - Build Grow Scale`,
+      width: 1024,
+      height: 1024,
+    },
+    image: `${seoConfig.siteUrl}/logo.png`,
     description: seoConfig.defaultDescription,
     telephone: siteConfig.contact.whatsappNumber
       ? `+${siteConfig.contact.whatsappNumber}`
