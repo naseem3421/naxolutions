@@ -7,11 +7,13 @@ import { X, ArrowRight, CheckCircle2, AlertTriangle, Loader2 } from 'lucide-reac
 interface DiagnosticModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialPlan?: string;
 }
 
-export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProps) {
+export default function DiagnosticModal({ isOpen, onClose, initialPlan }: DiagnosticModalProps) {
   const router = useRouter();
   const [step, setStep] = useState<number>(1);
+  const [selectedPlan, setSelectedPlan] = useState<string>(initialPlan || 'Revenue Diagnostic');
   const [businessType, setBusinessType] = useState<string>('B2B / Professional Services');
   const [primaryFriction, setPrimaryFriction] = useState<string[]>([
     'Enquiries come in but drop off before sales call',
@@ -21,6 +23,13 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
+
+  // Update selected plan if initialPlan prop changes
+  useEffect(() => {
+    if (initialPlan) {
+      setSelectedPlan(initialPlan);
+    }
+  }, [initialPlan]);
 
   // Submission States
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -94,6 +103,7 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
           businessType,
           primaryFriction,
           monthlyLeads,
+          selectedPlan,
           notes: notes ? notes.trim() : undefined,
         }),
       });
@@ -102,6 +112,23 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
 
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Failed to submit diagnostic intake.');
+      }
+
+      // Track lead generation conversion event
+      if (typeof window !== 'undefined') {
+        if ((window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'conversion',
+            event_label: selectedPlan,
+            value: selectedPlan.includes('9,999') ? 9999 : 4999,
+            currency: 'INR',
+          });
+        }
+        if ((window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_name: selectedPlan,
+          });
+        }
       }
 
       setSubmitted(true);
@@ -290,6 +317,10 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                     DIAGNOSTIC SUMMARY PREVIEW:
                   </div>
                   <div className="text-[#0F1012]">
+                    <span className="text-[#4A4E58]">Focus: </span>
+                    <span className="font-semibold text-[#0F1012]">{selectedPlan}</span>
+                  </div>
+                  <div className="text-[#0F1012]">
                     <span className="text-[#4A4E58]">Domain: </span>
                     {businessType}
                   </div>
@@ -376,7 +407,7 @@ export default function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProp
                       </>
                     ) : (
                       <>
-                        <span>Start The Conversation</span>
+                        <span>Submit Diagnostic Request</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}

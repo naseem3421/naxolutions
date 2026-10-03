@@ -135,10 +135,10 @@ export default function ThankYouPage() {
             </Link>
 
             <Link
-              href="/#breaks"
+              href="/#journey"
               className="text-[#737887] hover:text-[#0F1012] transition-colors"
             >
-              Explore 7 Points Where Businesses Break →
+              Explore the 7-Stage Customer Journey →
             </Link>
           </div>
         </div>

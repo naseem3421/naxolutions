@@ -56,7 +56,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>This window of peak buyer intent is extremely short.</p>
       
       <div className="bg-[#0F1012] text-white font-mono p-5 rounded-lg my-6 text-xs leading-relaxed overflow-x-auto">
-        BUYER INTENT &amp; RESPONSE LATENCY DECAY CURVE<br/><br/>
+        ILLUSTRATIVE BUYER INTENT &amp; RESPONSE LATENCY DECAY MODEL<br/><br/>
         Peak Intent (100%) ──► [ Form Submission ]<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Sub-60 Seconds: 95% Contact Rate (Peak Intent Window)<br/>
@@ -65,7 +65,7 @@ export const BLOG_POSTS: BlogPost[] = [
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 4+ Hours: &lt;5% Contact Rate (Ghosting Zone)
       </div>
 
-      <p>Published research on sales response latency (such as the landmark study published in the <em>Harvard Business Review</em>) demonstrates that the odds of making contact with an inbound lead drop by <strong>over 10 times</strong> if the response time exceeds 30 minutes compared to 5 minutes. Furthermore, the likelihood of qualifying that lead drops by <strong>over 21 times</strong>.</p>
+      <p>Across commercial conversion diagnostics, we observe that the odds of making contact with an inbound lead drop drastically when response times stretch past 30 minutes compared to an immediate response within the first 5 minutes. In high-velocity sales pipelines, delays turn what should have been a warm discovery conversation into an uphill battle against buyer disengagement.</p>
       <p>When your business takes 3, 6, or 18 hours to reply to a form submission, you are not calling an inbound lead anymore—you are making an unsolicited cold call to someone whose attention has moved on to other operational priorities.</p>
 
       <h2>4 Systemic Intake Failures That Cause Lead Ghosting</h2>

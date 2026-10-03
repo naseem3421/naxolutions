@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import DiagnosticModal from '@/components/DiagnosticModal';
@@ -104,17 +105,25 @@ export default function ChennaiConversionConsultantPage() {
             </div>
           </div>
 
-          <div className="bg-[#0F1012] text-white p-8 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="bg-[#0F1012] text-white p-8 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
             <div className="space-y-1">
-              <h4 className="text-xl font-bold text-white">Operating a business in Chennai or Tamil Nadu?</h4>
-              <p className="text-xs text-[#B0B6C5]">Start a zero-commitment diagnostic conversation to locate your revenue leaks.</p>
+              <h4 className="text-xl font-bold text-white">Operating an established business in Chennai or Tamil Nadu?</h4>
+              <p className="text-xs text-[#B0B6C5]">Start with a strategic diagnostic conversation to locate where your revenue is leaking.</p>
             </div>
-            <button
-              onClick={handleOpenDiagnostic}
-              className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#FFFFFF] bg-[#C84B27] rounded hover:bg-[#B23E1C] transition-colors whitespace-nowrap"
-            >
-              Start System Diagnosis
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <button
+                onClick={handleOpenDiagnostic}
+                className="w-full sm:w-auto px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#FFFFFF] bg-[#C84B27] rounded hover:bg-[#B23E1C] transition-colors whitespace-nowrap text-center"
+              >
+                Find My Revenue Leak
+              </button>
+              <Link
+                href="/consultation"
+                className="w-full sm:w-auto px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-transparent border border-white/20 rounded hover:border-white transition-colors whitespace-nowrap text-center"
+              >
+                Book a Diagnostic
+              </Link>
+            </div>
           </div>
         </div>
       </main>

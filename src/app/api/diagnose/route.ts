@@ -4,6 +4,7 @@ interface DiagnosticRequestBody {
   businessType: string;
   primaryFriction: string[];
   monthlyLeads: string;
+  selectedPlan?: string;
   notes?: string;
   name: string;
   email: string;
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
   try {
     const body: DiagnosticRequestBody = await request.json();
 
-    const { name, email, businessType, primaryFriction, monthlyLeads, notes, phone } = body;
+    const { name, email, businessType, primaryFriction, monthlyLeads, selectedPlan, notes, phone } = body;
 
     // Server-side input validation
     if (!name || typeof name !== 'string' || name.trim().length === 0) {
@@ -63,6 +64,7 @@ export async function POST(request: Request) {
               businessType,
               primaryFriction,
               monthlyLeads,
+              selectedPlan: selectedPlan || 'General Revenue Diagnostic',
               notes: notes ? notes.trim() : undefined,
             },
           }),

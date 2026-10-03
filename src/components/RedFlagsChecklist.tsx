@@ -20,7 +20,7 @@ const RED_FLAGS: RedFlagItem[] = [
     id: 'flag-1',
     title: 'Lead Latency > 15 Minutes',
     description: 'Enquiries submitted on your website or ad forms sit in email inboxes or CSV spreadsheets for hours before a sales rep reaches out.',
-    impact: '80% drop in lead qualification rate after 5 minutes.'
+    impact: 'Internal diagnostic audits show buyer responsiveness drops sharply within the first 15 minutes of enquiry submission.'
   },
   {
     id: 'flag-2',
@@ -32,13 +32,13 @@ const RED_FLAGS: RedFlagItem[] = [
     id: 'flag-3',
     title: 'Single-Touch Follow-Up Reliance',
     description: 'Your sales team contacts a lead 1 or 2 times via phone. If unanswered, the lead is marked "cold" or abandoned without structured multi-touch nurture.',
-    impact: 'Up to 70% of ultimate buyers buy after 5+ follow-up touches.'
+    impact: 'In high-ticket B2B sales, commercial prospects routinely require 5 or more structured follow-up touches before scheduling an evaluation call.'
   },
   {
     id: 'flag-4',
     title: 'Generic Post-Click Landing Experience',
     description: 'Paid ads send traffic to a generic homepage or outdated landing page that lacks clear B2B value framing, proof mechanisms, or immediate booking hooks.',
-    impact: '92%+ bounce rate on paid traffic spend.'
+    impact: 'Uncontextualized generic destinations frequently experience 80%+ mobile bounce rates (Naxolutions diagnostic observations).'
   },
   {
     id: 'flag-5',
@@ -181,7 +181,7 @@ export default function RedFlagsChecklist({ onOpenDiagnostic }: RedFlagsChecklis
                 onClick={onOpenDiagnostic}
                 className="w-full bg-[#0F1012] hover:bg-[#16181B] text-[#FAF8F5] py-4 px-6 rounded-xl font-medium text-base transition-all duration-200 flex items-center justify-center gap-2 group shadow-md"
               >
-                <span>Fix These {selectedCount > 0 ? selectedCount : ''} Leaks Now</span>
+                <span>Find My Revenue Leak</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#C84B27]" />
               </button>
 

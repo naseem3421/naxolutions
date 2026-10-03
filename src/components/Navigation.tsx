@@ -130,10 +130,10 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
                 </Link>
 
                 <Link
-                  href="/blog"
+                  href="/case-studies"
                   className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-center whitespace-nowrap inline-flex items-center justify-center text-[#4A4E58] hover:text-[#C84B27] hover:bg-[#FAF8F5] rounded-full transition-all"
                 >
-                  Insights
+                  Case Studies
                 </Link>
 
                 <Link
@@ -152,7 +152,7 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
                 className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded transition-all duration-200 shadow-subtle group whitespace-nowrap"
               >
                 <Activity className="w-3.5 h-3.5 text-[#C84B27] group-hover:text-white transition-colors" />
-                <span>Find Your Revenue Leak</span>
+                <span>Find My Revenue Leak</span>
               </button>
             </div>
 
@@ -182,14 +182,6 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
         <div className="fixed inset-0 z-40 bg-[#FAF8F5] pt-24 px-6 flex flex-col justify-between pb-8 lg:hidden border-b border-[#E6E1D6] overflow-y-auto">
           <div className="flex flex-col gap-4 text-xs font-mono font-semibold uppercase tracking-wider text-[#0F1012]">
             <Link
-              href="/#problem"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 border-b border-[#E6E1D6] flex items-center justify-between"
-            >
-              <span>The Real Problem</span>
-              <span className="text-[#737887]">→</span>
-            </Link>
-            <Link
               href="/#journey"
               onClick={() => setMobileMenuOpen(false)}
               className="py-2.5 border-b border-[#E6E1D6] flex items-center justify-between"
@@ -214,11 +206,19 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
               <span className="text-[#737887]">→</span>
             </Link>
             <Link
+              href="/case-studies"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-2.5 border-b border-[#E6E1D6] flex items-center justify-between"
+            >
+              <span>Case Studies &amp; Teardowns</span>
+              <span className="text-[#737887]">→</span>
+            </Link>
+            <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="py-2.5 border-b border-[#E6E1D6] flex items-center justify-between"
             >
-              <span>Insights</span>
+              <span>Insights &amp; Articles</span>
               <span className="text-[#737887]">→</span>
             </Link>
             <Link
@@ -266,7 +266,7 @@ export default function Navigation({ onOpenDiagnostic }: NavigationProps) {
               }}
               className="w-full text-center py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded flex items-center justify-center gap-2 transition-colors"
             >
-              <span>Find Where You're Losing Revenue</span>
+              <span>Find My Revenue Leak</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

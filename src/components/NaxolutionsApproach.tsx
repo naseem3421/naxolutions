@@ -205,7 +205,7 @@ export default function NaxolutionsApproach({ onOpenDiagnostic }: NaxolutionsApp
               onClick={onOpenDiagnostic}
               className="inline-flex items-center justify-center gap-2 px-6 py-4 text-xs font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded transition-colors whitespace-nowrap shadow-subtle"
             >
-              <span>Start With A Diagnosis</span>
+              <span>Find My Revenue Leak</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           )}

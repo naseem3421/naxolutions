@@ -113,11 +113,11 @@ export default function Footer({ onOpenDiagnostic }: FooterProps) {
                     onClick={onOpenDiagnostic}
                     className="text-[#C84B27] hover:underline font-semibold text-left"
                   >
-                    Start a Conversation
+                    Find My Revenue Leak
                   </button>
                 ) : (
                   <Link href="/consultation" className="text-[#C84B27] hover:underline font-semibold">
-                    Start a Conversation
+                    Find My Revenue Leak
                   </Link>
                 )}
               </li>

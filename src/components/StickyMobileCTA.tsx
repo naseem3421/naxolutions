@@ -23,7 +23,7 @@ export default function StickyMobileCTA({ onOpenDiagnostic }: StickyMobileCTAPro
           onClick={onOpenDiagnostic}
           className="bg-[#C84B27] hover:bg-[#b03f1f] text-white text-xs font-semibold px-4 py-2.5 rounded-md flex items-center gap-1.5 shadow-md flex-shrink-0 active:scale-95 transition-all"
         >
-          <span>Audit System</span>
+          <span>Find My Leak</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

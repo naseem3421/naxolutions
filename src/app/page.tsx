@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     'Naxolutions is a Business Conversion Consultancy based in Chennai, India. We identify and fix the structural gaps between customer attention, enquiries, sales conversations, follow-up, and revenue.',
   alternates: {
-    canonical: `${seoConfig.siteUrl}/`,
+    canonical: seoConfig.siteUrl,
   },
   openGraph: {
     title: 'Naxolutions | Business Conversion Consultancy',
     description:
       'Identify and fix structural revenue leaks across attention, enquiry, sales qualification, conversation, and revenue.',
-    url: `${seoConfig.siteUrl}/`,
+    url: seoConfig.siteUrl,
     siteName: 'Naxolutions',
     locale: 'en_US',
     type: 'website',

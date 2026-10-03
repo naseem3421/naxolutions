@@ -24,15 +24,16 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
   const [enquiries, setEnquiries] = useState<number>(300);
   const [dealValue, setDealValue] = useState<number>(150000);
   const [currentCloseRate, setCurrentCloseRate] = useState<number>(4);
+  const [selectedScenarioBoost, setSelectedScenarioBoost] = useState<number>(4); // Default +4% improvement
 
   // Math Calculations
   const currentMonthlyRevenue = Math.round(enquiries * (currentCloseRate / 100) * dealValue);
   
-  // Conservative system optimization: 2.2x close rate boost from eliminating lead latency & follow-up leaks
-  const targetCloseRate = Math.min(Math.round(currentCloseRate * 2.2 * 10) / 10, 35);
+  // Illustrative Scenario target: Current + selected boost
+  const targetCloseRate = Math.min(Math.round((currentCloseRate + selectedScenarioBoost) * 10) / 10, 50);
   const optimizedMonthlyRevenue = Math.round(enquiries * (targetCloseRate / 100) * dealValue);
   
-  const monthlyLeak = optimizedMonthlyRevenue - currentMonthlyRevenue;
+  const monthlyLeak = Math.max(0, optimizedMonthlyRevenue - currentMonthlyRevenue);
   const annualLeak = monthlyLeak * 12;
 
   const formatCurrency = (val: number) => {
@@ -71,19 +72,24 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             Interactive System Simulator
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FAF8F5] mb-6">
-            Calculate Your Business&apos;s Monthly Revenue Leakage
+            Calculate Your Business&apos;s Revenue Leakage
           </h2>
           <p className="text-base sm:text-lg text-[#FAF8F5]/80 leading-relaxed">
-            Most businesses assume they need more ad spend to grow. In reality, disconnected follow-ups and website leaks bleed up to 60% of potential revenue from traffic you already paid for.
+            Most businesses assume they need more ad spend to grow. In reality, response latency, lack of qualification, and dropped follow-ups bleed potential revenue from traffic you already have.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Controls Panel (Left) */}
           <div className="lg:col-span-6 bg-[#16181B] border border-[#FAF8F5]/10 rounded-2xl p-6 sm:p-8 space-y-8">
-            <h3 className="text-xl font-bold text-[#FAF8F5] pb-4 border-b border-[#FAF8F5]/10">
-              Input Your Current Sales Baseline
-            </h3>
+            <div className="flex items-center justify-between pb-4 border-b border-[#FAF8F5]/10">
+              <h3 className="text-xl font-bold text-[#FAF8F5]">
+                Your Current Sales Baseline
+              </h3>
+              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/10 text-[#FAF8F5]/80 border border-white/10">
+                User-Provided Input
+              </span>
+            </div>
 
             {/* Slider 1: Monthly Enquiries */}
             <div className="space-y-3">
@@ -175,8 +181,44 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
               </div>
             </div>
 
-            <p className="text-xs text-[#FAF8F5]/70 leading-relaxed italic border-t border-[#FAF8F5]/10 pt-4">
-              *Calculations are based on conservative system fixes: eliminating 4+ hour response delays, implementing automated triage, and structuring 7-step WhatsApp &amp; CRM follow-up protocols.
+            {/* Scenario Comparison Selector */}
+            <div className="pt-4 border-t border-[#FAF8F5]/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-[#FAF8F5]/90 uppercase font-semibold">
+                  Compare Illustrative Scenarios:
+                </span>
+                <span className="text-[10px] font-mono bg-[#C84B27]/20 text-[#C84B27] px-2 py-0.5 rounded">
+                  Illustrative Scenario
+                </span>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { boost: 2, label: 'Scenario A', delta: '+2% Close' },
+                  { boost: 4, label: 'Scenario B', delta: '+4% Close' },
+                  { boost: 6, label: 'Scenario C', delta: '+6% Close' },
+                ].map((sc) => {
+                  const isSel = selectedScenarioBoost === sc.boost;
+                  return (
+                    <button
+                      key={sc.boost}
+                      type="button"
+                      onClick={() => setSelectedScenarioBoost(sc.boost)}
+                      className={`p-2.5 rounded-lg border text-center transition-all ${
+                        isSel
+                          ? 'border-[#C84B27] bg-[#C84B27]/15 text-white ring-1 ring-[#C84B27]'
+                          : 'border-white/10 bg-white/5 text-[#FAF8F5]/70 hover:border-white/20'
+                      }`}
+                    >
+                      <div className="text-[11px] font-bold text-white">{sc.label}</div>
+                      <div className="text-[10px] font-mono text-[#C84B27]">{sc.delta}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p className="text-[11px] text-[#FAF8F5]/60 leading-relaxed italic border-t border-[#FAF8F5]/10 pt-3">
+              *Educational simulation model. Figures reflect mathematical differences across illustrative scenarios. Actual conversion improvements depend on market conditions, offer quality, and sales execution.
             </p>
           </div>
 
@@ -188,13 +230,15 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono font-semibold tracking-wider text-[#C84B27] uppercase bg-[#C84B27]/15 px-3 py-1 rounded">
-                  Estimated System Revenue Leak
+                  Illustrative Uncaptured Revenue
                 </span>
                 <AlertTriangle className="w-5 h-5 text-[#C84B27]" />
               </div>
 
               <div>
-                <div className="text-xs text-[#FAF8F5]/70 font-mono mb-1">UNCAPTURED REVENUE PER MONTH</div>
+                <div className="text-xs text-[#FAF8F5]/70 font-mono mb-1">
+                  POTENTIAL DIFFERENCE AT {targetCloseRate}% CONVERSION
+                </div>
                 <div className="text-4xl sm:text-5xl font-mono font-bold text-[#C84B27] tracking-tight">
                   {formatCurrency(monthlyLeak)}
                   <span className="text-sm font-sans font-normal text-[#FAF8F5]/80 ml-2">/ month</span>
@@ -203,16 +247,16 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
 
               <div className="pt-4 border-t border-[#FAF8F5]/10 grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-xs text-[#FAF8F5]/70 font-mono">ANNUALIZED LOSS</div>
+                  <div className="text-xs text-[#FAF8F5]/70 font-mono">ANNUALIZED DIFFERENCE</div>
                   <div className="text-xl font-mono font-semibold text-[#FAF8F5] mt-1">
                     {formatCurrency(annualLeak)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-[#FAF8F5]/70 font-mono">OPTIMIZED CLOSE RATE</div>
+                  <div className="text-xs text-[#FAF8F5]/70 font-mono">SCENARIO CLOSE RATE</div>
                   <div className="text-xl font-mono font-semibold text-emerald-400 mt-1 flex items-center gap-1">
                     <TrendingUp className="w-4 h-4" />
-                    {targetCloseRate}%
+                    {targetCloseRate}% <span className="text-xs font-mono text-[#FAF8F5]/60">({currentCloseRate}% + {selectedScenarioBoost}%)</span>
                   </div>
                 </div>
               </div>
@@ -221,14 +265,20 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
             {/* Comparison Metrics */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-[#16181B] border border-[#FAF8F5]/10 rounded-xl p-5">
-                <div className="text-xs font-mono text-[#FAF8F5]/70 mb-1">CURRENT MONTHLY REVENUE</div>
+                <div className="text-[11px] font-mono text-[#FAF8F5]/70 mb-1 flex items-center justify-between">
+                  <span>CURRENT REVENUE</span>
+                  <span className="text-[9px] bg-white/10 px-1.5 py-0.5 rounded">Input</span>
+                </div>
                 <div className="text-lg font-mono font-semibold text-[#FAF8F5]">
                   {formatCurrency(currentMonthlyRevenue)}
                 </div>
                 <div className="text-xs text-[#FAF8F5]/60 mt-1">At {currentCloseRate}% close rate</div>
               </div>
               <div className="bg-[#16181B] border border-emerald-500/20 bg-emerald-500/5 rounded-xl p-5">
-                <div className="text-xs font-mono text-emerald-400 mb-1">CONNECTED SYSTEM REVENUE</div>
+                <div className="text-[11px] font-mono text-emerald-400 mb-1 flex items-center justify-between">
+                  <span>SCENARIO REVENUE</span>
+                  <span className="text-[9px] bg-emerald-400/20 px-1.5 py-0.5 rounded">Illustrative</span>
+                </div>
                 <div className="text-lg font-mono font-semibold text-emerald-300">
                   {formatCurrency(optimizedMonthlyRevenue)}
                 </div>
@@ -242,11 +292,11 @@ export default function RevenueLeakageCalculator({ onOpenDiagnostic }: RevenueLe
                 onClick={onOpenDiagnostic}
                 className="w-full bg-[#C84B27] hover:bg-[#b03f1f] text-[#FAF8F5] py-4 px-6 rounded-xl font-medium text-base transition-all duration-200 shadow-lg shadow-[#C84B27]/25 flex items-center justify-center gap-2 group"
               >
-                <span>Audit &amp; Plug Your Revenue Leaks</span>
+                <span>Find My Revenue Leak</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <p className="text-center text-xs text-[#FAF8F5]/70 mt-3">
-                100% confidential. No generic templates. Direct 14-point audit of your pipeline.
+              <p className="text-center text-xs text-[#FAF8F5]/70 mt-3 font-mono">
+                Confidential principal diagnostic review • No generic agency retainers
               </p>
             </div>
           </div>

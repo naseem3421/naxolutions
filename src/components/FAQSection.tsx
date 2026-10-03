@@ -15,15 +15,25 @@ export default function FAQSection() {
     {
       question: 'Are you a digital marketing agency?',
       answer:
-        'No. Digital marketing agencies typically sell execution services like ad spend management, SEO content, or social posts. Naxolutions is a Business Conversion Consultancy. We architect and build the connected system between customer attention, enquiry, sales conversation, and revenue.',
+        'No. Digital marketing agencies typically sell commodity execution services like ad spend management, SEO content, or social media posts. Naxolutions is a Business Conversion Consultancy. We architect and build the connected system between customer attention, enquiry, sales conversation, follow-up, and revenue.',
     },
     {
-      question: 'Do you only work with businesses that already run ads?',
+      question: 'Do you replace our existing marketing agency?',
       answer:
-        'No. We work with businesses that receive customer attention through organic search, word-of-mouth, direct referrals, outbound sales, or paid media. The problem is rarely the traffic source itself; it is how enquiries are captured, qualified, and closed after attention arrives.',
+        'No. We do not replace your media buying or creative agency. Marketing agencies drive traffic to your front door; Naxolutions architects the post-click intake, WhatsApp routing, qualification, and sales follow-up systems that turn their traffic into revenue.',
     },
     {
-      question: 'Will you manage our Meta Ads?',
+      question: 'Do you guarantee more sales or specific revenue?',
+      answer:
+        'No credible business consultant guarantees revenue outcomes because closed transactions depend on multiple external factors including your pricing, sales rep execution, product fulfillment, and market dynamics. What Naxolutions does guarantee is systemic conversion efficiency: eliminating response latency, filtering out tire-kickers before rep calls, and ensuring zero leads leak between enquiry and sales conversation.',
+    },
+    {
+      question: 'How long does implementation take?',
+      answer:
+        'Our initial Diagnostic session is completed in 60 minutes with strategic written recommendations delivered within 48–72 hours. Custom architecture sprints (building conversion destinations, WhatsApp Business API triage, and CRM synchronization) typically range from 30 to 60 days depending on pipeline complexity.',
+    },
+    {
+      question: 'Will you manage our Meta Ads or Google Ads?',
       answer:
         'If paid acquisition is identified as a critical missing piece of your conversion system, we will architect and deploy high-intent acquisition campaigns. However, we never run ads in isolation without ensuring your landing experience and sales handling are structurally ready to convert that attention.',
     },
@@ -33,7 +43,7 @@ export default function FAQSection() {
         'Yes, when a new or modified landing experience is required to fix a conversion leak. However, we build conversion websites engineered around commercial positioning, buyer decision clarity, and intake qualification — not generic online brochures.',
     },
     {
-      question: 'Can you work with our existing CRM?',
+      question: 'Can you work with our existing CRM and tech stack?',
       answer:
         'Yes. We connect and optimize your existing toolstack (CRM, WhatsApp, Email, scheduling tools) to eliminate manual delays, automated pipeline breaks, and lost follow-ups.',
     },
@@ -43,24 +53,14 @@ export default function FAQSection() {
         'We do not recommend replacing a working website simply to sell a web build. If your current website communicates value clearly and generates qualified enquiries, we focus on downstream leaks like response speed, lead filtering, or post-consultation follow-up.',
     },
     {
-      question: 'What if our problem actually is lead generation?',
+      question: 'Is the consultation refundable?',
       answer:
-        'During our initial diagnostic evaluation, we examine whether your bottleneck is true top-of-funnel attention or mid-funnel conversion. If attention is genuinely the limiting constraint, we build targeted acquisition components to feed the system.',
+        'Diagnostic sessions represent dedicated, senior-level strategic analysis and research into your business model. Sessions can be rescheduled at any time with 24 hours advance notice. Because direct strategic recommendations and IP are delivered during the session, consultations are non-refundable once conducted.',
     },
     {
       question: 'Do you replace our sales team?',
       answer:
         'No. We empower your sales team by filtering out unqualified leads, providing structured consultation frameworks, and automating non-responsive follow-up so your reps spend 100% of their time having high-value conversations.',
-    },
-    {
-      question: 'How do you decide what needs to be built?',
-      answer:
-        'We map your existing customer journey step-by-step to identify precisely where attention leaks before becoming revenue. We then prioritize the fewest, highest-impact building blocks required to close those gaps.',
-    },
-    {
-      question: 'How does the initial conversation work?',
-      answer:
-        'The initial conversation is a structured diagnostic review. We discuss how your business currently receives attention, handles enquiries, and closes sales. There is no sales pitch, no predefined package push, and no obligation.',
     },
   ];
 

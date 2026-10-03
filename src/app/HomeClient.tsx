@@ -57,11 +57,11 @@ export default function HomeClient() {
 
       <main className="flex-grow">
         <Hero onOpenDiagnostic={handleOpenDiagnostic} />
-        <AudienceSection onOpenDiagnostic={handleOpenDiagnostic} />
         <TheRealProblem />
-        <DiagnosticCaseTeardowns onOpenDiagnostic={handleOpenDiagnostic} />
-        <RevenueJourney onOpenDiagnostic={handleOpenDiagnostic} />
         <RevenueLeakageCalculator onOpenDiagnostic={handleOpenDiagnostic} />
+        <AudienceSection onOpenDiagnostic={handleOpenDiagnostic} />
+        <RevenueJourney onOpenDiagnostic={handleOpenDiagnostic} />
+        <DiagnosticCaseTeardowns onOpenDiagnostic={handleOpenDiagnostic} />
         <AboutNaxolutions />
         <HomepageInsights />
         <DiagnosisCTA onOpenDiagnostic={handleOpenDiagnostic} />

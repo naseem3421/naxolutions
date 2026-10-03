@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, AlertTriangle, ChevronRight, CheckCircle2, RefreshCw } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, AlertTriangle, ChevronRight, Activity } from 'lucide-react';
 
 interface HeroProps {
   onOpenDiagnostic: () => void;
@@ -16,45 +17,45 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
       label: 'ATTENTION',
       subtext: 'Traffic & Awareness',
       leakName: 'Attention Friction',
-      leakDescription: 'Qualified prospects visit but exit in 8 seconds because messaging lacks commercial clarity.',
-      metric: '68% drop-off',
-      symptom: 'High bounce rate on high-intent search clicks',
+      leakDescription: 'Qualified prospects visit but exit within 8 seconds because messaging lacks commercial clarity and objection handling.',
+      metric: 'High Bounce Leak',
+      symptom: 'High bounce rate on high-intent search clicks and ad campaigns',
     },
     {
       id: 1,
       label: 'ENQUIRY',
       subtext: 'Forms, Calls & Messages',
-      leakName: 'Response Friction',
-      leakDescription: 'Enquiries sit unhandled for 4+ hours. Lead intent decays by 80% after 30 minutes.',
-      metric: '4.8 hr avg delay',
-      symptom: 'Prospects contact 2 competitors while waiting',
+      leakName: 'Response Latency',
+      leakDescription: 'Enquiries sit unhandled for hours in manual email inboxes. High-intent buyers contact faster-replying competitors while waiting.',
+      metric: 'Multi-Hour Delay',
+      symptom: 'Prospects say "I have already arranged a call elsewhere"',
     },
     {
       id: 2,
       label: 'CONVERSATION',
       subtext: 'Sales & Consultations',
       leakName: 'Qualification Friction',
-      leakDescription: 'Sales team wastes 60% of capacity pitching unqualified prospects with no budget.',
-      metric: '62% wasted hours',
-      symptom: 'Drawn-out sales cycles with ambiguous outcomes',
+      leakDescription: 'Sales reps spend valuable consultation hours on unvetted leads who lack budget, fit, or immediate buying intent.',
+      metric: 'Capacity Drain',
+      symptom: 'Full sales calendars but weak proposal acceptance rates',
     },
     {
       id: 3,
       label: 'DECISION',
       subtext: 'Proposals & Follow-ups',
       leakName: 'Follow-Up Void',
-      leakDescription: 'Proposals are sent into radio silence without a structured follow-up protocol.',
-      metric: '74% leads un-followed',
-      symptom: 'Interested prospects vanish after receiving proposal',
+      leakDescription: 'Proposals are sent into radio silence without a confirmed review meeting or structured multi-touch nurture sequence.',
+      metric: 'Stalled Pipeline',
+      symptom: 'Interested prospects vanish after receiving pricing proposals',
     },
     {
       id: 4,
       label: 'REVENUE',
       subtext: 'Closed Contracts & Profit',
-      leakName: 'System Output',
-      leakDescription: 'When all stages connect, predictable revenue flows without buying more traffic.',
-      metric: '+40-120% efficiency',
-      symptom: 'Target outcome of a connected conversion system',
+      leakName: 'Connected System Output',
+      leakDescription: 'When all stages connect into a single commercial architecture, predictable bank revenue flows without buying more traffic.',
+      metric: 'System Goal',
+      symptom: 'Target outcome of a calibrated Naxolutions conversion engine',
     },
   ];
 
@@ -72,7 +73,7 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
               Business Conversion Consultancy // Chennai &amp; Global
             </div>
             <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white border border-[#E6E1D6] text-xs font-mono text-[#0F1012]">
-              <span className="text-[#C84B27] font-bold">≠</span> Not an ad agency • We fix the pipeline from click to cash
+              <span className="text-[#C84B27] font-bold">≠</span> Not an ad agency • We architect the pipeline from click to cash
             </div>
           </div>
 
@@ -87,20 +88,26 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
 
           {/* Core Explanation */}
           <p className="text-lg sm:text-xl text-[#4A4E58] leading-relaxed max-w-3xl mb-6">
-            Most businesses already have the pieces — marketing, a website, enquiries, salespeople, WhatsApp, follow-ups.
+            Naxolutions helps established businesses identify and fix the structural gaps between leads, sales conversations, and revenue.
             <br className="hidden sm:inline" />
-            <span className="text-[#0F1012] font-semibold">
-              What they don't have is a system that connects those pieces from first attention to actual revenue.
+            <span className="text-[#0F1012] font-semibold mt-1 block">
+              Most businesses already have traffic, websites, enquiries, WhatsApp messages, and salespeople. What they lack is an integrated system that connects those assets so revenue flows predictably.
             </span>
           </p>
 
-          {/* Economic Cost Benchmark */}
+          {/* Qualification ICP Line */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-white border border-[#E6E1D6] text-xs font-mono text-[#0F1012] font-medium mb-6">
+            <span className="text-[#C84B27] font-bold">ICP //</span>
+            <span>For established businesses already generating enquiries, traffic, or sales opportunities.</span>
+          </div>
+
+          {/* Economic Cost Benchmark - Qualified Source */}
           <div className="bg-white border-l-2 border-[#C84B27] border-y border-r border-[#E6E1D6] p-4 rounded-r-lg max-w-3xl mb-10 text-xs sm:text-sm text-[#4A4E58] flex items-start gap-3">
             <span className="font-mono font-bold text-[#C84B27] text-xs uppercase bg-[#FDF4F0] px-2 py-0.5 rounded border border-[#E8D5CC] flex-shrink-0 mt-0.5">
-              The Reality
+              Diagnostic Reality
             </span>
             <p>
-              Across commercial B2B audits, an average of <span className="font-bold text-[#0F1012]">63% of qualified inbound enquiry value leaks</span> between first response, sales qualification, and proposal follow-up — before sales conversations even mature.
+              Based on Naxolutions internal diagnostic observations across commercial B2B audits, an average of <span className="font-bold text-[#0F1012]">63% of qualified inbound enquiry value leaks</span> between first response, sales qualification, and proposal follow-up — before sales conversations even mature.
             </p>
           </div>
 
@@ -111,16 +118,24 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
                 onClick={onOpenDiagnostic}
                 className="inline-flex items-center justify-center gap-3 px-7 py-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#0F1012] hover:bg-[#C84B27] rounded shadow-card transition-all duration-200 group"
               >
-                <span>Audit Your Conversion Pipeline</span>
+                <Activity className="w-4 h-4 text-[#C84B27] group-hover:text-white transition-colors" />
+                <span>Find My Revenue Leak</span>
                 <ArrowRight className="w-4 h-4 text-[#C84B27] group-hover:text-white transition-colors group-hover:translate-x-0.5" />
               </button>
 
-              <a
-                href="#journey"
+              <Link
+                href="/consultation"
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#0F1012] bg-white border border-[#E6E1D6] hover:border-[#0F1012] hover:bg-[#F3EFE7] rounded transition-all duration-200"
               >
-                <span>See How The System Breaks</span>
+                <span>View Consultation</span>
                 <ChevronRight className="w-4 h-4 text-[#4A4E58]" />
+              </Link>
+
+              <a
+                href="#journey"
+                className="inline-flex items-center justify-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#737887] hover:text-[#C84B27] transition-colors py-2 px-3"
+              >
+                <span>See How It Works ↓</span>
               </a>
             </div>
 
@@ -193,14 +208,14 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
                     {/* Friction Flag Indicator */}
                     {!isRevenue && (
                       <div className="mt-3 pt-2 border-t border-[#E6E1D6] flex items-center justify-between text-[11px] font-mono">
-                        <span className="text-[#C84B27] font-medium">Leak Point</span>
-                        <span className="text-[#0F1012] font-semibold">{node.metric}</span>
+                        <span className="text-[#C84B27] font-medium">Friction Area</span>
+                        <span className="text-[#0F1012] font-semibold text-[10px]">{node.metric}</span>
                       </div>
                     )}
                     {isRevenue && (
                       <div className="mt-3 pt-2 border-t border-[#E6E1D6] flex items-center justify-between text-[11px] font-mono">
-                        <span className="text-[#2B5246] font-medium">System Goal</span>
-                        <span className="text-[#0F1012] font-semibold">{node.metric}</span>
+                        <span className="text-[#2B5246] font-medium">Outcome</span>
+                        <span className="text-[#0F1012] font-semibold text-[10px]">{node.metric}</span>
                       </div>
                     )}
                   </button>
@@ -226,9 +241,9 @@ export default function Hero({ onOpenDiagnostic }: HeroProps) {
 
             <button
               onClick={onOpenDiagnostic}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#C84B27] hover:bg-[#B23E1C] rounded transition-colors whitespace-nowrap self-start md:self-center"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#C84B27] hover:bg-[#B23E1C] rounded transition-colors whitespace-nowrap self-start md:self-center shadow-subtle"
             >
-              <span>Audit This Stage</span>
+              <span>Find My Revenue Leak</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

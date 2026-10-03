@@ -4,23 +4,27 @@ import React, { useState } from 'react';
 import { Check, X, ArrowRight, ShieldAlert, BarChart3, Clock, Target, FileText, HelpCircle, Activity } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import DiagnosticModal from '@/components/DiagnosticModal';
 
 export default function ConsultationClient() {
-  const [isPlaceholderOpen, setIsPlaceholderOpen] = useState(false);
+  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string>('Revenue Diagnostic (₹4,999)');
 
-  const handleBook = () => {
-    // Analytics placeholder
+  const handleBook = (planName?: string) => {
+    const plan = planName || 'Revenue Diagnostic (₹4,999)';
+    setSelectedPlan(plan);
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'consultation_cta_click', {
         event_category: 'engagement',
+        event_label: plan,
       });
     }
-    setIsPlaceholderOpen(true);
+    setIsDiagnosticOpen(true);
   };
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#0F1012] flex flex-col font-sans">
-      <Navigation onOpenDiagnostic={handleBook} />
+      <Navigation onOpenDiagnostic={() => handleBook('Revenue Diagnostic (₹4,999)')} />
 
       <main className="flex-grow pt-16 sm:pt-20">
         {/* HERO SECTION */}
@@ -41,10 +45,10 @@ export default function ConsultationClient() {
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={handleBook}
+              onClick={() => handleBook('Revenue Diagnostic (₹4,999)')}
               className="w-full sm:w-auto px-8 py-4 bg-[#0F1012] text-white rounded font-bold uppercase tracking-wider text-sm hover:bg-[#C84B27] transition-colors shadow-subtle flex items-center justify-center gap-2"
             >
-              Find My Revenue Leaks
+              Find My Revenue Leak
               <ArrowRight className="w-4 h-4" />
             </button>
             <a
@@ -169,24 +173,47 @@ export default function ConsultationClient() {
                 <div className="min-h-[3.5rem] flex items-start">
                   <h3 className="text-2xl font-bold text-[#0F1012] leading-snug">Revenue Diagnostic</h3>
                 </div>
-                <div className="text-4xl font-extrabold text-[#0F1012] mb-4">₹4,999</div>
-                <p className="text-sm text-[#4A4E58] leading-relaxed mb-8 min-h-[44px]">
-                  Best for: Businesses looking for clarity on where their biggest conversion problems are.
+                <div className="text-4xl font-extrabold text-[#0F1012] mb-1">₹4,999</div>
+                <div className="text-xs font-mono text-[#737887] uppercase tracking-wider mb-4">60-Minute Intensive • Live Strategy Session</div>
+                <p className="text-sm text-[#4A4E58] leading-relaxed mb-6 min-h-[44px]">
+                  <strong>Who it is for:</strong> Established businesses seeking immediate, expert clarity on their most critical conversion bottlenecks.
                 </p>
                 <button
-                  onClick={handleBook}
-                  className="w-full py-3.5 bg-white text-[#0F1012] border-2 border-[#0F1012] rounded font-bold uppercase tracking-wider text-sm hover:bg-[#0F1012] hover:text-white transition-colors mb-8"
+                  onClick={() => handleBook('Revenue Diagnostic (₹4,999)')}
+                  className="w-full py-3.5 bg-white text-[#0F1012] border-2 border-[#0F1012] rounded font-bold uppercase tracking-wider text-sm hover:bg-[#0F1012] hover:text-white transition-colors mb-6 shadow-sm"
                 >
-                  Book My Diagnostic
+                  Book Revenue Diagnostic (₹4,999)
                 </button>
-                <div className="space-y-3.5">
-                  <div className="text-xs font-bold text-[#0F1012] uppercase tracking-wider border-b border-[#E6E1D6] pb-2.5 mb-4">
-                    Core Diagnostic Includes:
+                <div className="space-y-4">
+                  <div className="text-xs font-bold text-[#0F1012] uppercase tracking-wider border-b border-[#E6E1D6] pb-2">
+                    What Gets Reviewed &amp; Included:
                   </div>
-                  {['60-minute 1:1 strategy session', 'Business and customer journey review', 'Website / landing page review', 'Lead generation review', 'Sales / conversion process review', 'Identification of major revenue leaks', '3–5 priority actions', 'Session recording'].map((feature, i) => (
+                  {[
+                    '60-minute 1:1 live session with Naseem',
+                    'Intake questionnaire reviewed prior to call',
+                    'Website landing & mobile experience teardown',
+                    'Lead generation & response speed diagnosis',
+                    'Sales consultation & follow-up evaluation',
+                    'Top 3–5 high-priority immediate fixes identified',
+                    'Full session video & audio recording',
+                  ].map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-[#C84B27] shrink-0 mt-0.5" />
                       <span className="text-sm text-[#4A4E58] leading-snug">{feature}</span>
+                    </div>
+                  ))}
+
+                  <div className="text-xs font-bold text-[#737887] uppercase tracking-wider border-b border-[#E6E1D6] pt-2 pb-2">
+                    What Is NOT Included:
+                  </div>
+                  {[
+                    'No written diagnostic report (verbal findings only)',
+                    'No deep CRM export / ad account audit',
+                    'No post-session implementation support',
+                  ].map((exclusion, i) => (
+                    <div key={i} className="flex items-start gap-3 text-xs text-[#737887]">
+                      <X className="w-3.5 h-3.5 text-[#A0A6B2] shrink-0 mt-0.5" />
+                      <span className="leading-snug">{exclusion}</span>
                     </div>
                   ))}
                 </div>
@@ -198,23 +225,33 @@ export default function ConsultationClient() {
                   Most Comprehensive
                 </div>
                 <div className="min-h-[3.5rem] flex items-start">
-                  <h3 className="text-2xl font-bold text-white leading-snug">Revenue & Conversion Deep Dive</h3>
+                  <h3 className="text-2xl font-bold text-white leading-snug">Revenue &amp; Conversion Deep Dive</h3>
                 </div>
-                <div className="text-4xl font-extrabold text-white mb-4">₹9,999</div>
-                <p className="text-sm text-[#A1A1AA] leading-relaxed mb-8 min-h-[44px]">
-                  Best for: Businesses that want deeper data analysis and a documented action plan.
+                <div className="text-4xl font-extrabold text-white mb-1">₹9,999</div>
+                <div className="text-xs font-mono text-[#C84B27] uppercase tracking-wider mb-4">Pre-Analysis + 90-Min Session + Written Report</div>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 min-h-[44px]">
+                  <strong>Who it is for:</strong> Businesses that want deep funnel analytics, competitor positioning analysis, and a written strategic roadmap.
                 </p>
                 <button
-                  onClick={handleBook}
-                  className="w-full py-3.5 bg-[#C84B27] text-white border-2 border-[#C84B27] rounded font-bold uppercase tracking-wider text-sm hover:bg-[#A33B1E] hover:border-[#A33B1E] transition-colors mb-8"
+                  onClick={() => handleBook('Revenue & Conversion Deep Dive (₹9,999)')}
+                  className="w-full py-3.5 bg-[#C84B27] text-white border-2 border-[#C84B27] rounded font-bold uppercase tracking-wider text-sm hover:bg-[#A33B1E] hover:border-[#A33B1E] transition-colors mb-6 shadow-md"
                 >
-                  Book Deep Dive
+                  Book Deep Dive Diagnostic (₹9,999)
                 </button>
-                <div className="space-y-3.5">
-                  <div className="text-xs font-bold text-white uppercase tracking-wider border-b border-white/20 pb-2.5 mb-4">
+                <div className="space-y-4">
+                  <div className="text-xs font-bold text-white uppercase tracking-wider border-b border-white/20 pb-2">
                     Everything in Diagnostic, PLUS:
                   </div>
-                  {['Pre-call data analysis', 'Ads performance review', 'CRM / lead data review', 'Conversion-rate analysis', 'Funnel / drop-off analysis', 'Competitor / market positioning review', 'Detailed Revenue Leakage Report', 'Prioritized 30-day action plan', 'Post-consultation clarification/support'].map((feature, i) => (
+                  {[
+                    'Deep pre-session data audit of your analytics & CRM',
+                    'Extended 90-minute strategic consultation with Naseem',
+                    'Ad campaign spend-to-revenue efficiency audit',
+                    'Lead drop-off analysis across all 7 journey stages',
+                    'Competitor positioning & objection gap benchmark',
+                    'Written Revenue Leakage Report (delivered in 72h)',
+                    'Prioritized 30-Day Technical & Procedural Roadmap',
+                    '7 days of email follow-up for team clarification',
+                  ].map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-[#C84B27] shrink-0 mt-0.5" />
                       <span className="text-sm text-[#A1A1AA] leading-snug">{feature}</span>
@@ -455,13 +492,13 @@ export default function ConsultationClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
-                onClick={handleBook}
+                onClick={() => handleBook('Revenue Diagnostic (₹4,999)')}
                 className="w-full sm:w-auto px-8 py-4 bg-white text-[#0F1012] border-2 border-[#0F1012] rounded font-bold uppercase tracking-wider text-sm hover:bg-[#0F1012] hover:text-white transition-colors"
               >
                 Book Revenue Diagnostic — ₹4,999
               </button>
               <button
-                onClick={handleBook}
+                onClick={() => handleBook('Revenue & Conversion Deep Dive (₹9,999)')}
                 className="w-full sm:w-auto px-8 py-4 bg-[#C84B27] text-white rounded font-bold uppercase tracking-wider text-sm hover:bg-[#A33B1E] transition-colors"
               >
                 Book Deep Dive — ₹9,999
@@ -471,37 +508,13 @@ export default function ConsultationClient() {
         </section>
       </main>
 
-      <Footer onOpenDiagnostic={handleBook} />
+      <Footer onOpenDiagnostic={() => handleBook('Revenue Diagnostic (₹4,999)')} />
 
-      {/* PLACEHOLDER MODAL */}
-      {isPlaceholderOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0F1012]/80 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl w-full max-w-md p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-            <button
-              onClick={() => setIsPlaceholderOpen(false)}
-              className="absolute top-4 right-4 p-2 text-[#737887] hover:text-[#0F1012] hover:bg-[#FAF8F5] rounded-full transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            
-            <div className="w-12 h-12 bg-[#F3EFE7] rounded-full flex items-center justify-center mb-6">
-              <Activity className="w-6 h-6 text-[#C84B27]" />
-            </div>
-            
-            <h3 className="text-2xl font-bold text-[#0F1012] mb-2">Booking Coming Soon</h3>
-            <p className="text-[#4A4E58] mb-6">
-              Booking integration (calendar and payment gateway) is being finalized. Please check back later to book your diagnostic session.
-            </p>
-            
-            <button
-              onClick={() => setIsPlaceholderOpen(false)}
-              className="w-full py-3 bg-[#0F1012] text-white rounded font-bold uppercase tracking-wider text-sm hover:bg-[#C84B27] transition-colors"
-            >
-              Understood
-            </button>
-          </div>
-        </div>
-      )}
+      <DiagnosticModal
+        isOpen={isDiagnosticOpen}
+        onClose={() => setIsDiagnosticOpen(false)}
+        initialPlan={selectedPlan}
+      />
     </div>
   );
 }

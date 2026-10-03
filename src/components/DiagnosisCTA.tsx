@@ -21,7 +21,7 @@ export default function DiagnosisCTA({ onOpenDiagnostic }: DiagnosisCTAProps) {
 
           {/* Headline */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-            Find Where You're Losing Revenue
+            Find Where Your Revenue Is Leaking
           </h2>
 
           {/* Supporting Copy */}
@@ -30,7 +30,7 @@ export default function DiagnosisCTA({ onOpenDiagnostic }: DiagnosisCTAProps) {
               Bring us the problem you're seeing — fewer conversions, poor-quality enquiries, slow follow-up, weak sales conversations, wasted ad spend, or simply a feeling that the business should be converting better.
             </p>
             <p className="text-white font-medium">
-              Submit your current baseline for a preliminary intake check, or book a dedicated 1:1 diagnostic teardown.
+              Start with a diagnostic review of your current baseline, or book a dedicated 1:1 revenue teardown session.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function DiagnosisCTA({ onOpenDiagnostic }: DiagnosisCTAProps) {
                 onClick={onOpenDiagnostic}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#C84B27] hover:bg-[#B23E1C] rounded transition-all duration-200 shadow-editorial group"
               >
-                <span>Start System Intake</span>
+                <span>Find My Revenue Leak</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -75,7 +75,7 @@ export default function DiagnosisCTA({ onOpenDiagnostic }: DiagnosisCTAProps) {
                 href="/consultation"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#1A1C20] border border-[#2A2D34] hover:border-white rounded transition-all duration-200"
               >
-                <span>View 1:1 Diagnostic Plans</span>
+                <span>Book a Diagnostic</span>
               </Link>
             </div>
 
